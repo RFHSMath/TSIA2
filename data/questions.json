@@ -1,60 +1,1169 @@
 {
-  "skillPath": [
-    {"id":"QR-PCT-01","name":"Percent as a Number","status":"mastered","tests":["TSIA2","SAT","ACT"]},
-    {"id":"QR-PCT-02","name":"Percent of a Number","status":"mastered","tests":["TSIA2","SAT","ACT"]},
-    {"id":"QR-PCT-03","name":"Part and Whole","status":"active","tests":["TSIA2","SAT","ACT"]},
-    {"id":"QR-PCT-04","name":"Percent Change","status":"active","tests":["TSIA2","SAT","ACT"]},
-    {"id":"QR-PCT-05","name":"Multi-Step Applications","status":"locked","tests":["TSIA2","SAT","ACT"]},
-    {"id":"QR-PCT-06","name":"Advanced Transfer","status":"locked","tests":["SAT","ACT"]}
-  ],
+  "version": "0.1.0",
+  "startingQuestionId": "Q-APP02-ENTRY",
   "questions": [
     {
-      "id":"PCT-APP-001",
-      "skill":"QR-PCT-04",
-      "level":"TSIA2 Target",
-      "prompt":"A jacket originally costs $40. The price increases by 25%. What is the new price?",
-      "choices":[
-        {"text":"$10","type":"increase_only"},
-        {"text":"$45","type":"arithmetic_error"},
-        {"text":"$50","type":"correct"},
-        {"text":"$65","type":"percent_as_whole"}
-      ]
+      "id": "Q-APP02-ENTRY",
+      "skillId": "PCT-APP-02",
+      "role": "diagnostic-entry",
+      "difficulty": "TSIA2-core",
+      "prompt": "A jacket originally costs $40. Its price increases by 25%. What is the new price?",
+      "choices": [
+        {
+          "id": "change-only",
+          "text": "$10",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "change-only-as-final",
+            "misconceptionLabel": "the amount of change may have been reported as the final value",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "PCT-LANG-01",
+            "nextQuestionId": "Q-LANG-DIAG"
+          }
+        },
+        {
+          "id": "arithmetic-uncertain",
+          "text": "$45",
+          "correct": false,
+          "evidence": {
+            "errorType": "lower-confidence calculation error",
+            "prerequisiteSkillId": "PCT-CALC-01",
+            "confidence": "low"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "PCT-CALC-01",
+            "nextQuestionId": "Q-CALC01-DIAG"
+          }
+        },
+        {
+          "id": "correct",
+          "text": "$50",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "PCT-APP-02",
+            "nextQuestionId": "Q-APP02-CONFIRM"
+          }
+        },
+        {
+          "id": "unscaled",
+          "text": "$1,040",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "unscaled-percent-multiply",
+            "misconceptionLabel": "25% may have been treated as 25 instead of 0.25",
+            "prerequisiteSkillId": "PCT-REP-02",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "PCT-REP-02",
+            "nextQuestionId": "Q-REP02-DIAG"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "PCT-APP-02",
+        "nextQuestionId": "Q-APP02-CONFIRM"
+      }
     },
     {
-      "id":"PCT-DIAG-001",
-      "skill":"QR-PCT-03",
-      "level":"Prerequisite Check",
-      "prompt":"You found that 25% of $40 is $10. What does that $10 represent?",
-      "choices":[
-        {"text":"The original price","type":"wrong"},
-        {"text":"The amount of the increase","type":"correct"},
-        {"text":"The new price","type":"wrong"},
-        {"text":"The percent increase","type":"wrong"}
-      ]
+      "id": "Q-APP02-CONFIRM",
+      "skillId": "PCT-APP-02",
+      "role": "practice",
+      "difficulty": "TSIA2-core",
+      "prompt": "A $60 service fee increases by 20%. What is the new fee?",
+      "choices": [
+        {
+          "id": "change-only",
+          "text": "$12",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "change-only-as-final",
+            "misconceptionLabel": "the increase may have been reported instead of the new fee",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "PCT-LANG-01",
+            "nextQuestionId": "Q-LANG-DIAG"
+          }
+        },
+        {
+          "id": "wrong-direction",
+          "text": "$48",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "direction-error",
+            "misconceptionLabel": "an increase may have been subtracted",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-APP-01",
+            "nextQuestionId": "Q-CHANGE-DIAG"
+          }
+        },
+        {
+          "id": "correct",
+          "text": "$72",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "PCT-APP-04",
+            "nextQuestionId": "Q-APP04-CORE"
+          }
+        },
+        {
+          "id": "rate-added",
+          "text": "$60.20",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "rate-added-as-amount",
+            "misconceptionLabel": "the percent rate may have been added as a dollar amount",
+            "confidence": "medium"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "PCT-CALC-01",
+            "nextQuestionId": "Q-CALC01-DIAG"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "PCT-APP-04",
+        "nextQuestionId": "Q-APP04-CORE"
+      }
     },
     {
-      "id":"PCT-RETRY-001",
-      "skill":"QR-PCT-04",
-      "level":"TSIA2 Target",
-      "prompt":"A $60 service fee increases by 20%. What is the new fee?",
-      "choices":[
-        {"text":"$12","type":"increase_only"},
-        {"text":"$68","type":"arithmetic_error"},
-        {"text":"$72","type":"correct"},
-        {"text":"$80","type":"percent_as_whole"}
-      ]
+      "id": "Q-REP02-DIAG",
+      "skillId": "PCT-REP-02",
+      "role": "diagnostic",
+      "difficulty": "foundational",
+      "prompt": "Which decimal is equal to 25%?",
+      "choices": [
+        {
+          "id": "wrong-whole",
+          "text": "25",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "percent-symbol-only",
+            "misconceptionLabel": "the percent sign may have been removed without scaling",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REGRESS",
+            "targetSkillId": "PCT-REP-01",
+            "nextQuestionId": "Q-REP01-REMEDIATE"
+          }
+        },
+        {
+          "id": "wrong-shift",
+          "text": "2.5",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "decimal-shift-direction",
+            "misconceptionLabel": "the decimal may have moved one place instead of two",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-REP-02",
+            "nextQuestionId": "Q-REP02-REMEDIATE"
+          }
+        },
+        {
+          "id": "correct",
+          "text": "0.25",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "PCT-CALC-01",
+            "nextQuestionId": "Q-CALC01-RECOVERY"
+          }
+        },
+        {
+          "id": "wrong-small",
+          "text": "0.025",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "decimal-shift-direction",
+            "misconceptionLabel": "the decimal may have moved three places",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-REP-02",
+            "nextQuestionId": "Q-REP02-REMEDIATE"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "PCT-CALC-01",
+        "nextQuestionId": "Q-CALC01-RECOVERY"
+      }
     },
     {
-      "id":"PCT-ADV-001",
-      "skill":"QR-PCT-05",
-      "level":"SAT / ACT Extension",
-      "prompt":"A price is increased by 20% and then discounted by 20%. Compared with the original price, the final price is:",
-      "choices":[
-        {"text":"4% lower","type":"correct"},
-        {"text":"The same","type":"symmetric_percent"},
-        {"text":"4% higher","type":"wrong"},
-        {"text":"40% lower","type":"additive_percent"}
-      ]
+      "id": "Q-REP01-REMEDIATE",
+      "skillId": "PCT-REP-01",
+      "role": "remediation",
+      "difficulty": "foundational",
+      "prompt": "Percent means “out of 100.” Which statement correctly describes 35%?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "35 out of every 100",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-REP-02",
+            "nextQuestionId": "Q-REP02-REMEDIATE"
+          }
+        },
+        {
+          "id": "wrong",
+          "text": "35 times every 100",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "pct-whole-number",
+            "misconceptionLabel": "percent may still be treated as an unscaled whole number",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-REP-01",
+            "nextQuestionId": "Q-REP01-REMEDIATE"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "REMEDIATE",
+        "targetSkillId": "PCT-REP-02",
+        "nextQuestionId": "Q-REP02-REMEDIATE"
+      }
+    },
+    {
+      "id": "Q-REP02-REMEDIATE",
+      "skillId": "PCT-REP-02",
+      "role": "remediation",
+      "difficulty": "foundational",
+      "prompt": "To write 35% as a decimal, divide 35 by 100. What decimal do you get?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "0.35",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "PCT-CALC-01",
+            "nextQuestionId": "Q-CALC01-RECOVERY"
+          }
+        },
+        {
+          "id": "wrong",
+          "text": "3.5",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "decimal-shift-direction",
+            "misconceptionLabel": "dividing by 100 may not yet be secure",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "TEACHER_INTERVENTION",
+            "targetSkillId": "FND-NUM-01",
+            "nextQuestionId": "Q-REP02-REMEDIATE"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "PCT-CALC-01",
+        "nextQuestionId": "Q-CALC01-RECOVERY"
+      }
+    },
+    {
+      "id": "Q-CALC01-DIAG",
+      "skillId": "PCT-CALC-01",
+      "role": "diagnostic",
+      "difficulty": "core",
+      "prompt": "What is 25% of 40?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "10",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "PCT-LANG-01",
+            "nextQuestionId": "Q-LANG-DIAG"
+          }
+        },
+        {
+          "id": "unscaled",
+          "text": "1,000",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "unscaled-percent-multiply",
+            "misconceptionLabel": "25% may have been treated as 25",
+            "prerequisiteSkillId": "PCT-REP-02",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REGRESS",
+            "targetSkillId": "PCT-REP-02",
+            "nextQuestionId": "Q-REP02-DIAG"
+          }
+        },
+        {
+          "id": "divide-wrong",
+          "text": "1.6",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "divide-by-percent",
+            "misconceptionLabel": "the whole may have been divided by 25",
+            "confidence": "medium"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-CALC-01",
+            "nextQuestionId": "Q-CALC01-RECOVERY"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "DIAGNOSE",
+        "targetSkillId": "PCT-LANG-01",
+        "nextQuestionId": "Q-LANG-DIAG"
+      }
+    },
+    {
+      "id": "Q-CALC01-RECOVERY",
+      "skillId": "PCT-CALC-01",
+      "role": "recovery",
+      "difficulty": "core",
+      "prompt": "What is 30% of 50?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "15",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "PCT-APP-02",
+            "nextQuestionId": "Q-APP02-RETRY"
+          }
+        },
+        {
+          "id": "unscaled",
+          "text": "1,500",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "unscaled-percent-multiply",
+            "misconceptionLabel": "30% may still be treated as 30",
+            "prerequisiteSkillId": "PCT-REP-02",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-REP-02",
+            "nextQuestionId": "Q-REP02-REMEDIATE"
+          }
+        },
+        {
+          "id": "other",
+          "text": "20",
+          "correct": false,
+          "evidence": {
+            "errorType": "unresolved calculation error",
+            "confidence": "low"
+          },
+          "route": {
+            "action": "REVIEW",
+            "targetSkillId": "PCT-CALC-01",
+            "nextQuestionId": "Q-CALC01-DIAG"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "PCT-APP-02",
+        "nextQuestionId": "Q-APP02-RETRY"
+      }
+    },
+    {
+      "id": "Q-LANG-DIAG",
+      "skillId": "PCT-LANG-01",
+      "role": "diagnostic",
+      "difficulty": "core",
+      "prompt": "Twenty-five percent of $40 is $10. In a price-increase problem, what does the $10 represent?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "The amount of the increase",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "PCT-APP-02",
+            "nextQuestionId": "Q-APP02-RETRY"
+          }
+        },
+        {
+          "id": "final",
+          "text": "The new price",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "change-final-confusion",
+            "misconceptionLabel": "the amount of change and final value are being confused",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-LANG-01",
+            "nextQuestionId": "Q-LANG-REMEDIATE"
+          }
+        },
+        {
+          "id": "original",
+          "text": "The original price",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "part-whole-swap",
+            "misconceptionLabel": "the original whole and calculated part are being confused",
+            "prerequisiteSkillId": "PCT-STRUCT-01",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REGRESS",
+            "targetSkillId": "PCT-STRUCT-01",
+            "nextQuestionId": "Q-STRUCT-DIAG"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "PCT-APP-02",
+        "nextQuestionId": "Q-APP02-RETRY"
+      }
+    },
+    {
+      "id": "Q-STRUCT-DIAG",
+      "skillId": "PCT-STRUCT-01",
+      "role": "diagnostic",
+      "difficulty": "core",
+      "prompt": "In “18 is 30% of 60,” which number is the whole?",
+      "choices": [
+        {
+          "id": "part",
+          "text": "18",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "part-whole-swap",
+            "misconceptionLabel": "the part and whole are reversed",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-STRUCT-01",
+            "nextQuestionId": "Q-STRUCT-DIAG"
+          }
+        },
+        {
+          "id": "rate",
+          "text": "30",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "rate-as-part",
+            "misconceptionLabel": "the rate is being treated as the whole",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-STRUCT-01",
+            "nextQuestionId": "Q-STRUCT-DIAG"
+          }
+        },
+        {
+          "id": "correct",
+          "text": "60",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-LANG-01",
+            "nextQuestionId": "Q-LANG-REMEDIATE"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "REMEDIATE",
+        "targetSkillId": "PCT-LANG-01",
+        "nextQuestionId": "Q-LANG-REMEDIATE"
+      }
+    },
+    {
+      "id": "Q-LANG-REMEDIATE",
+      "skillId": "PCT-LANG-01",
+      "role": "remediation",
+      "difficulty": "core",
+      "prompt": "A new value after an increase equals the original value plus what?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "The amount of increase",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "PCT-APP-02",
+            "nextQuestionId": "Q-APP02-RETRY"
+          }
+        },
+        {
+          "id": "rate",
+          "text": "The percent sign",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "change-final-confusion",
+            "misconceptionLabel": "the relationship among original, change, and final value is unresolved",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "TEACHER_INTERVENTION",
+            "targetSkillId": "PCT-LANG-01",
+            "nextQuestionId": "Q-LANG-REMEDIATE"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "PCT-APP-02",
+        "nextQuestionId": "Q-APP02-RETRY"
+      }
+    },
+    {
+      "id": "Q-APP02-RETRY",
+      "skillId": "PCT-APP-02",
+      "role": "recovery",
+      "difficulty": "TSIA2-core",
+      "prompt": "A monthly fee of $80 increases by 15%. What is the new monthly fee?",
+      "choices": [
+        {
+          "id": "change-only",
+          "text": "$12",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "change-only-as-final",
+            "misconceptionLabel": "the amount of increase is still being reported as the final value",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-LANG-01",
+            "nextQuestionId": "Q-LANG-REMEDIATE"
+          }
+        },
+        {
+          "id": "correct",
+          "text": "$92",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "PCT-CALC-02",
+            "nextQuestionId": "Q-CALC02-CORE"
+          }
+        },
+        {
+          "id": "wrong-direction",
+          "text": "$68",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "direction-error",
+            "misconceptionLabel": "the increase may have been subtracted",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-APP-01",
+            "nextQuestionId": "Q-CHANGE-DIAG"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "PCT-CALC-02",
+        "nextQuestionId": "Q-CALC02-CORE"
+      }
+    },
+    {
+      "id": "Q-CHANGE-DIAG",
+      "skillId": "PCT-APP-01",
+      "role": "diagnostic",
+      "difficulty": "core",
+      "prompt": "If $60 increases by $12, which operation finds the new value?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "$60 + $12",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "PCT-APP-02",
+            "nextQuestionId": "Q-APP02-RETRY"
+          }
+        },
+        {
+          "id": "subtract",
+          "text": "$60 − $12",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "direction-error",
+            "misconceptionLabel": "increase and decrease directions are reversed",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-APP-01",
+            "nextQuestionId": "Q-CHANGE-DIAG"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "PCT-APP-02",
+        "nextQuestionId": "Q-APP02-RETRY"
+      }
+    },
+    {
+      "id": "Q-CALC02-CORE",
+      "skillId": "PCT-CALC-02",
+      "role": "practice",
+      "difficulty": "TSIA2-core",
+      "prompt": "18 is what percent of 60?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "30%",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "PCT-CALC-03",
+            "nextQuestionId": "Q-CALC03-CORE"
+          }
+        },
+        {
+          "id": "reversed",
+          "text": "333.3%",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "whole-divided-by-part",
+            "misconceptionLabel": "the whole may have been divided by the part",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "PCT-STRUCT-01",
+            "nextQuestionId": "Q-STRUCT-DIAG"
+          }
+        },
+        {
+          "id": "decimal",
+          "text": "0.30%",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "decimal-not-converted",
+            "misconceptionLabel": "the correct decimal ratio may not have been converted to percent",
+            "prerequisiteSkillId": "PCT-REP-02",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "PCT-REP-02",
+            "nextQuestionId": "Q-REP02-DIAG"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "PCT-CALC-03",
+        "nextQuestionId": "Q-CALC03-CORE"
+      }
+    },
+    {
+      "id": "Q-CALC03-CORE",
+      "skillId": "PCT-CALC-03",
+      "role": "practice",
+      "difficulty": "TSIA2-core",
+      "prompt": "18 is 30% of what number?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "60",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "PCT-APP-04",
+            "nextQuestionId": "Q-APP04-CORE"
+          }
+        },
+        {
+          "id": "multiply",
+          "text": "5.4",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "multiplies-part-by-rate",
+            "misconceptionLabel": "the known part may have been multiplied by the rate",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "PCT-STRUCT-01",
+            "nextQuestionId": "Q-STRUCT-DIAG"
+          }
+        },
+        {
+          "id": "subtract",
+          "text": "12.6",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "subtracts-rate",
+            "misconceptionLabel": "finding a whole may be treated as subtracting a percent",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-CALC-03",
+            "nextQuestionId": "Q-CALC03-CORE"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "PCT-APP-04",
+        "nextQuestionId": "Q-APP04-CORE"
+      }
+    },
+    {
+      "id": "Q-APP04-CORE",
+      "skillId": "PCT-APP-04",
+      "role": "practice",
+      "difficulty": "TSIA2-core",
+      "prompt": "A $100 item is discounted 20%, then 10% sales tax is applied to the sale price. What is the final cost?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "$88",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "TRANSFER",
+            "targetSkillId": "PCT-APP-07",
+            "nextQuestionId": "Q-APP07-ENTRY"
+          }
+        },
+        {
+          "id": "original-base",
+          "text": "$90",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "tax-on-original-after-discount",
+            "misconceptionLabel": "tax may have been calculated from the original price",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "PCT-APP-04",
+            "nextQuestionId": "Q-APP04-DIAG"
+          }
+        },
+        {
+          "id": "rates-combined",
+          "text": "$70",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "combines-rates-additively",
+            "misconceptionLabel": "discount and tax rates may have been combined despite different bases",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "PCT-APP-04",
+            "nextQuestionId": "Q-APP04-DIAG"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "TRANSFER",
+        "targetSkillId": "PCT-APP-07",
+        "nextQuestionId": "Q-APP07-ENTRY"
+      }
+    },
+    {
+      "id": "Q-APP04-DIAG",
+      "skillId": "PCT-APP-04",
+      "role": "diagnostic",
+      "difficulty": "core",
+      "prompt": "After a discount changes a $100 price to $80, which amount should be used to calculate the sales tax?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "$80, because that is the current price",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "PCT-APP-04",
+            "nextQuestionId": "Q-APP04-RETRY"
+          }
+        },
+        {
+          "id": "original",
+          "text": "$100, because it was the original price",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "tax-on-original-after-discount",
+            "misconceptionLabel": "the base is not being updated after the discount",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-APP-04",
+            "nextQuestionId": "Q-APP04-DIAG"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "PCT-APP-04",
+        "nextQuestionId": "Q-APP04-RETRY"
+      }
+    },
+    {
+      "id": "Q-APP04-RETRY",
+      "skillId": "PCT-APP-04",
+      "role": "recovery",
+      "difficulty": "TSIA2-core",
+      "prompt": "A $50 item is discounted 10%, then 8% tax is applied to the sale price. What is the final cost?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "$48.60",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "TRANSFER",
+            "targetSkillId": "PCT-APP-07",
+            "nextQuestionId": "Q-APP07-ENTRY"
+          }
+        },
+        {
+          "id": "original-base",
+          "text": "$49",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "tax-on-original-after-discount",
+            "misconceptionLabel": "tax may still be based on the original price",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-APP-04",
+            "nextQuestionId": "Q-APP04-DIAG"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "TRANSFER",
+        "targetSkillId": "PCT-APP-07",
+        "nextQuestionId": "Q-APP07-ENTRY"
+      }
+    },
+    {
+      "id": "Q-APP07-ENTRY",
+      "skillId": "PCT-APP-07",
+      "role": "transfer",
+      "difficulty": "advanced",
+      "prompt": "A price increases by 20% and then decreases by 20%. Compared with the original price, the final price is:",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "4% lower",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "TRANSFER",
+            "targetSkillId": "PCT-APP-07",
+            "nextQuestionId": "Q-APP07-RETRY"
+          }
+        },
+        {
+          "id": "cancel",
+          "text": "The same",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "successive-rates-cancel",
+            "misconceptionLabel": "equal increase and decrease rates may be assumed to cancel",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-APP-07",
+            "nextQuestionId": "Q-APP07-REMEDIATE"
+          }
+        },
+        {
+          "id": "higher",
+          "text": "4% higher",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "base-drift",
+            "misconceptionLabel": "the changing base may not be tracked between steps",
+            "confidence": "medium"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-APP-07",
+            "nextQuestionId": "Q-APP07-REMEDIATE"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "TRANSFER",
+        "targetSkillId": "PCT-APP-07",
+        "nextQuestionId": "Q-APP07-RETRY"
+      }
+    },
+    {
+      "id": "Q-APP07-REMEDIATE",
+      "skillId": "PCT-APP-07",
+      "role": "remediation",
+      "difficulty": "advanced",
+      "prompt": "Start with $100. After a 20% increase, what value receives the following 20% decrease?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "$120",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "PCT-APP-07",
+            "nextQuestionId": "Q-APP07-RETRY"
+          }
+        },
+        {
+          "id": "original",
+          "text": "$100",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "successive-rates-cancel",
+            "misconceptionLabel": "the second percent may still be applied to the original base",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-APP-07",
+            "nextQuestionId": "Q-APP07-REMEDIATE"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "PCT-APP-07",
+        "nextQuestionId": "Q-APP07-RETRY"
+      }
+    },
+    {
+      "id": "Q-APP07-RETRY",
+      "skillId": "PCT-APP-07",
+      "role": "recovery",
+      "difficulty": "advanced",
+      "prompt": "A population increases by 10% one year and decreases by 10% the next. Compared with the starting population, the final population is:",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "1% lower",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "TRANSFER",
+            "targetSkillId": "PCT-APP-08",
+            "nextQuestionId": "Q-APP08-TRANSFER"
+          }
+        },
+        {
+          "id": "same",
+          "text": "The same",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "successive-rates-cancel",
+            "misconceptionLabel": "equal successive rates may still be assumed to cancel",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-APP-07",
+            "nextQuestionId": "Q-APP07-REMEDIATE"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "TRANSFER",
+        "targetSkillId": "PCT-APP-08",
+        "nextQuestionId": "Q-APP08-TRANSFER"
+      }
+    },
+    {
+      "id": "Q-APP08-TRANSFER",
+      "skillId": "PCT-APP-08",
+      "role": "transfer",
+      "difficulty": "SAT-ACT-extension",
+      "prompt": "An account begins with $500 and grows 6% each year. Which expression gives its value after t years?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "500(1.06)^t",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "PCT-APP-08",
+            "nextQuestionId": null
+          }
+        },
+        {
+          "id": "rate-base",
+          "text": "500(0.06)^t",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "growth-rate-as-base",
+            "misconceptionLabel": "the rate may be used instead of the growth factor",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "PCT-APP-08",
+            "nextQuestionId": "Q-APP07-REMEDIATE"
+          }
+        },
+        {
+          "id": "linear",
+          "text": "500 + 0.06t",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "repeated-linear-change",
+            "misconceptionLabel": "repeated percent growth may be modeled additively",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REVIEW",
+            "targetSkillId": "PCT-APP-07",
+            "nextQuestionId": "Q-APP07-RETRY"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "PCT-APP-08",
+        "nextQuestionId": null
+      }
+    },
+    {
+      "id": "Q-APP02-INCONSISTENT",
+      "skillId": "PCT-APP-02",
+      "role": "review",
+      "difficulty": "TSIA2-core",
+      "prompt": "A $90 price decreases by 20%. What is the new price?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "$72",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "PCT-APP-02",
+            "nextQuestionId": "Q-APP02-CONFIRM-RECOVERY"
+          }
+        },
+        {
+          "id": "unresolved",
+          "text": "$78",
+          "correct": false,
+          "evidence": {
+            "errorType": "unresolved conflicting response",
+            "confidence": "low"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "PCT-APP-02",
+            "nextQuestionId": "Q-APP02-CONFIRM-RECOVERY"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "PCT-APP-02",
+        "nextQuestionId": "Q-APP02-CONFIRM-RECOVERY"
+      }
+    },
+    {
+      "id": "Q-APP02-CONFIRM-RECOVERY",
+      "skillId": "PCT-APP-02",
+      "role": "recovery",
+      "difficulty": "TSIA2-core",
+      "prompt": "A $75 price decreases by 20%. What is the new price?",
+      "choices": [
+        {
+          "id": "correct",
+          "text": "$60",
+          "correct": true,
+          "evidence": {},
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "PCT-APP-04",
+            "nextQuestionId": "Q-APP04-CORE"
+          }
+        },
+        {
+          "id": "change-only",
+          "text": "$15",
+          "correct": false,
+          "evidence": {
+            "misconceptionId": "change-only-as-final",
+            "misconceptionLabel": "the amount of decrease may be reported as the final value",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "PCT-LANG-01",
+            "nextQuestionId": "Q-LANG-DIAG"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "PCT-APP-04",
+        "nextQuestionId": "Q-APP04-CORE"
+      }
     }
   ]
 }

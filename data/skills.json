@@ -2,873 +2,482 @@
   "version": "0.2.2",
   "skills": [
     {
-      "id": "PCT-REP-01",
+      "id": "s001",
       "studentName": "What Percent Means",
-      "competency": "Interpret a percent as a rate per 100 and identify the whole to which it refers.",
-      "band": "foundational",
       "requiredPrerequisites": [],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [],
-      "advancementConditions": [
-        "Explains per-100 meaning independently",
-        "Identifies the reference whole in two contexts"
-      ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "attention-cue",
-        "hundred-grid",
-        "part-whole-labeling"
-      ],
-      "transferTargets": [
-        "PCT-STRUCT-01"
-      ]
+      }
     },
     {
-      "id": "PCT-REP-02",
+      "id": "s002",
       "studentName": "Decimals and Percents",
-      "competency": "Convert decimals to percents and percents to decimals, including values below 1% and above 100%.",
-      "band": "foundational",
       "requiredPrerequisites": [
-        "PCT-REP-01"
+        "s001"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-REP-01",
-        "FND-NUM-01"
-      ],
-      "advancementConditions": [
-        "Converts in both directions independently",
-        "Handles one value below 1% or above 100%"
+        "s001"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
         "transferRequired": true
-      },
-      "interventions": [
-        "place-value-cue",
-        "per-100-equivalence",
-        "similar-example"
-      ],
-      "transferTargets": [
-        "PCT-COMP-01",
-        "PCT-CALC-01"
-      ]
+      }
     },
     {
-      "id": "PCT-REP-03",
+      "id": "s003",
       "studentName": "Fractions and Percents",
-      "competency": "Convert common and non-benchmark fractions to percents and percents to simplified fractions.",
-      "band": "foundational",
       "requiredPrerequisites": [
-        "PCT-REP-01",
-        "FND-NUM-01"
+        "s001"
       ],
       "supportingSkills": [
-        "PCT-REP-02",
-        "PCT-PROP-02"
+        "s002",
+        "s008"
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-REP-01",
-        "FND-NUM-01"
-      ],
-      "advancementConditions": [
-        "Converts benchmark and non-benchmark fractions",
-        "Converts percents back to simplified fractions"
+        "s001"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
         "transferRequired": true
-      },
-      "interventions": [
-        "fraction-as-division-cue",
-        "benchmark-fraction-reference",
-        "partial-worked-example"
-      ],
-      "transferTargets": [
-        "PCT-COMP-01",
-        "PCT-PROP-01"
-      ]
+      }
     },
     {
-      "id": "PCT-COMP-01",
+      "id": "s004",
       "studentName": "Compare Fractions, Decimals, and Percents",
-      "competency": "Compare and order equivalent or nonequivalent quantities expressed as fractions, decimals, and percents.",
-      "band": "foundational",
       "requiredPrerequisites": [
-        "PCT-REP-02",
-        "PCT-REP-03"
+        "s002",
+        "s003"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-REP-02",
-        "PCT-REP-03"
-      ],
-      "advancementConditions": [
-        "Converts to a common form",
-        "Orders mixed representations accurately"
+        "s002",
+        "s003"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "common-form-cue",
-        "number-line-model"
-      ],
-      "transferTargets": [
-        "PCT-CALC-01"
-      ]
+      }
     },
     {
-      "id": "PCT-RATIO-01",
+      "id": "s005",
       "studentName": "Write and Read Ratios",
-      "competency": "Represent part-to-part and part-to-whole comparisons in the requested order and interpret ratio units.",
-      "band": "foundational-to-core",
       "requiredPrerequisites": [],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
-      "regressionTargets": [
-        "FND-NUM-01"
-      ],
-      "advancementConditions": [
-        "Preserves requested order",
-        "Distinguishes part-to-part from part-to-whole"
-      ],
+      "regressionTargets": [],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "label-first-cue",
-        "part-whole-diagram"
-      ],
-      "transferTargets": [
-        "PCT-PROP-01",
-        "PCT-STRUCT-01"
-      ]
+      }
     },
     {
-      "id": "PCT-RATE-01",
+      "id": "s006",
       "studentName": "Find a Unit Rate",
-      "competency": "Calculate and interpret a unit rate with correct units from numerical, tabular, or contextual information.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-RATIO-01",
-        "FND-NUM-01"
+        "s005"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-RATIO-01",
-        "FND-NUM-01"
-      ],
-      "advancementConditions": [
-        "Computes the rate",
-        "Interprets the rate with units in two contexts"
+        "s005"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "units-as-fraction-cue",
-        "division-meaning-example"
-      ],
-      "transferTargets": [
-        "PCT-PROP-02",
-        "PCT-UNIT-01"
-      ]
+      }
     },
     {
-      "id": "PCT-PROP-01",
+      "id": "s007",
       "studentName": "Build Equivalent Ratios",
-      "competency": "Generate and recognize equivalent ratios using multiplicative reasoning.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-RATIO-01",
-        "FND-NUM-01"
+        "s005"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-RATIO-01",
-        "FND-NUM-01"
-      ],
-      "advancementConditions": [
-        "Identifies a scale factor",
-        "Creates equivalent ratios in both directions"
+        "s005"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "scale-factor-cue",
-        "ratio-table"
-      ],
-      "transferTargets": [
-        "PCT-PROP-02"
-      ]
+      }
     },
     {
-      "id": "PCT-PROP-02",
+      "id": "s008",
       "studentName": "Solve a Proportion",
-      "competency": "Set up and solve proportions while preserving corresponding quantities and units.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-PROP-01",
-        "FND-NUM-01"
+        "s007"
       ],
       "supportingSkills": [
-        "PCT-RATE-01"
+        "s006"
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-PROP-01",
-        "FND-NUM-01"
-      ],
-      "advancementConditions": [
-        "Sets up correspondence independently",
-        "Solves and interprets a contextual proportion"
+        "s007"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "unit-labeling",
-        "ratio-table",
-        "partial-worked-example"
-      ],
-      "transferTargets": [
-        "PCT-PROP-03",
-        "PCT-CALC-02"
-      ]
+      }
     },
     {
-      "id": "PCT-PROP-03",
+      "id": "s009",
       "studentName": "Proportional Relationships",
-      "competency": "Recognize proportional relationships and connect constant of proportionality across tables, equations, graphs, and contexts.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-RATE-01"
+        "s006"
       ],
       "supportingSkills": [
-        "PCT-PROP-02"
+        "s008"
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-RATE-01"
-      ],
-      "advancementConditions": [
-        "Recognizes proportional and nonproportional examples",
-        "Connects unit rate to equation or graph"
+        "s006"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
         "transferRequired": true
-      },
-      "interventions": [
-        "origin-cue",
-        "constant-ratio-table"
-      ],
-      "transferTargets": [
-        "PCT-APP-10"
-      ]
+      }
     },
     {
-      "id": "PCT-STRUCT-01",
+      "id": "s010",
       "studentName": "Find the Part, Whole, and Percent",
-      "competency": "Identify the part, reference whole, and percent rate in explicit and contextual percent statements.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-REP-01"
+        "s001"
       ],
       "supportingSkills": [
-        "PCT-RATIO-01"
+        "s005"
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-REP-01"
-      ],
-      "advancementConditions": [
-        "Labels all three quantities in varied sentence forms",
-        "Explains why the whole is the reference base"
+        "s001"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
         "transferRequired": true
-      },
-      "interventions": [
-        "part-whole-rate-template",
-        "underline-and-label"
-      ],
-      "transferTargets": [
-        "PCT-CALC-01",
-        "PCT-CALC-02",
-        "PCT-CALC-03"
-      ]
+      }
     },
     {
-      "id": "PCT-CALC-01",
+      "id": "s011",
       "studentName": "Find a Percent of a Number",
-      "competency": "Calculate a specified percent of a quantity using an efficient representation and interpret the result as a part.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-STRUCT-01",
-        "FND-NUM-01"
+        "s010"
       ],
       "supportingSkills": [
-        "PCT-COMP-01"
+        "s004"
       ],
       "alternativePrerequisiteGroups": [
         {
-          "id": "calculation-method",
-          "mode": "anyOf",
-          "minimumSatisfied": 1,
           "skillIds": [
-            "PCT-REP-02",
-            "PCT-PROP-02"
+            "s002",
+            "s008"
           ]
         }
       ],
       "regressionTargets": [
-        "PCT-STRUCT-01",
-        "PCT-REP-02",
-        "PCT-PROP-02",
-        "FND-NUM-01"
-      ],
-      "advancementConditions": [
-        "Computes benchmark and non-benchmark percents",
-        "Interprets the result as the part"
+        "s010",
+        "s002",
+        "s008"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
         "transferRequired": true
-      },
-      "interventions": [
-        "decimal-multiplier-cue",
-        "ten-percent-decomposition",
-        "similar-example"
-      ],
-      "transferTargets": [
-        "PCT-APP-01",
-        "PCT-APP-02"
-      ]
+      }
     },
     {
-      "id": "PCT-CALC-02",
+      "id": "s012",
       "studentName": "What Percent Is It?",
-      "competency": "Determine what percent one quantity is of another and interpret part divided by whole as a rate.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-STRUCT-01",
-        "FND-NUM-01"
+        "s010"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [
         {
-          "id": "calculation-method",
-          "mode": "anyOf",
-          "minimumSatisfied": 1,
           "skillIds": [
-            "PCT-REP-02",
-            "PCT-PROP-02"
+            "s002",
+            "s008"
           ]
         }
       ],
       "regressionTargets": [
-        "PCT-STRUCT-01",
-        "PCT-REP-02",
-        "PCT-PROP-02",
-        "FND-NUM-01"
-      ],
-      "advancementConditions": [
-        "Chooses part/whole orientation",
-        "Converts the resulting rate to percent"
+        "s010",
+        "s002",
+        "s008"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "is-over-of-language-cue",
-        "part-whole-fraction"
-      ],
-      "transferTargets": [
-        "PCT-APP-03",
-        "PCT-APP-04",
-        "PCT-APP-09"
-      ]
+      }
     },
     {
-      "id": "PCT-CALC-03",
+      "id": "s013",
       "studentName": "Find the Original Whole",
-      "competency": "Determine the reference whole when a part and its percent rate are known.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-STRUCT-01",
-        "FND-NUM-01"
+        "s010"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [
         {
-          "id": "calculation-method",
-          "mode": "anyOf",
-          "minimumSatisfied": 1,
           "skillIds": [
-            "PCT-REP-02",
-            "PCT-PROP-02"
+            "s002",
+            "s008"
           ]
         }
       ],
       "regressionTargets": [
-        "PCT-STRUCT-01",
-        "PCT-REP-02",
-        "PCT-PROP-02",
-        "FND-NUM-01"
-      ],
-      "advancementConditions": [
-        "Represents part = rate × whole",
-        "Solves and checks using the original statement"
+        "s010",
+        "s002",
+        "s008"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "equation-template",
-        "proportion-template",
-        "check-by-multiplication"
-      ],
-      "transferTargets": [
-        "PCT-APP-05",
-        "PCT-APP-06"
-      ]
+      }
     },
     {
-      "id": "PCT-LANG-01",
+      "id": "s014",
       "studentName": "Read Percent Problems",
-      "competency": "Translate varied percent language into the correct part-whole-rate relationship and identify the requested quantity.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-STRUCT-01"
+        "s010"
       ],
       "supportingSkills": [
-        "PCT-CALC-01"
+        "s011"
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-STRUCT-01"
-      ],
-      "advancementConditions": [
-        "Identifies requested quantity before calculating",
-        "Translates increase, decrease, tax, tip, discount, and markup language"
+        "s010"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
         "transferRequired": true
-      },
-      "interventions": [
-        "question-restatement",
-        "quantity-labeling",
-        "attention-cue"
-      ],
-      "transferTargets": [
-        "PCT-APP-01",
-        "PCT-APP-02",
-        "PCT-APP-03",
-        "PCT-APP-04"
-      ]
+      }
     },
     {
-      "id": "PCT-APP-01",
+      "id": "s015",
       "studentName": "Find the Amount of Change",
-      "competency": "Calculate and label the amount of increase or decrease from the original value and rate.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-CALC-01",
-        "PCT-LANG-01"
+        "s011",
+        "s014"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-LANG-01",
-        "PCT-CALC-01"
-      ],
-      "advancementConditions": [
-        "Selects the original value as base",
-        "Labels result as amount of change"
+        "s014",
+        "s011"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "original-change-final-diagram",
-        "requested-quantity-cue"
-      ],
-      "transferTargets": [
-        "PCT-APP-02",
-        "PCT-APP-03"
-      ]
+      }
     },
     {
-      "id": "PCT-APP-02",
+      "id": "s016",
       "studentName": "Find the New Value",
-      "competency": "Find a final value after a percent increase or decrease using a change amount or multiplier.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-CALC-01",
-        "PCT-LANG-01"
+        "s011",
+        "s014"
       ],
       "supportingSkills": [
-        "PCT-APP-01"
+        "s015"
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-LANG-01",
-        "PCT-CALC-01"
-      ],
-      "advancementConditions": [
-        "Distinguishes change from final value",
-        "Uses both two-step and multiplier methods"
+        "s014",
+        "s011"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
         "transferRequired": true
-      },
-      "interventions": [
-        "original-change-final-diagram",
-        "multiplier-cue",
-        "similar-example"
-      ],
-      "transferTargets": [
-        "PCT-APP-04",
-        "PCT-APP-07"
-      ]
+      }
     },
     {
-      "id": "PCT-APP-03",
+      "id": "s017",
       "studentName": "Find Percent Change",
-      "competency": "Calculate percent increase or decrease using change divided by the original value and interpret the direction.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-CALC-02",
-        "PCT-LANG-01",
-        "PCT-APP-01"
+        "s012",
+        "s014",
+        "s015"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-LANG-01",
-        "PCT-APP-01",
-        "PCT-CALC-02"
-      ],
-      "advancementConditions": [
-        "Uses original as denominator",
-        "Classifies and interprets increase or decrease"
+        "s014",
+        "s015",
+        "s012"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
         "transferRequired": true
-      },
-      "interventions": [
-        "change-over-original-template",
-        "original-value-cue"
-      ],
-      "transferTargets": [
-        "PCT-APP-04",
-        "PCT-APP-09"
-      ]
+      }
     },
     {
-      "id": "PCT-APP-04",
+      "id": "s018",
       "studentName": "Discount, Tax, Tip, and Markup",
-      "competency": "Solve and explain one-step and two-step transaction problems involving discount, tax, tip, commission, or markup.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-LANG-01",
-        "PCT-APP-01",
-        "PCT-APP-02"
+        "s014",
+        "s015",
+        "s016"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-LANG-01",
-        "PCT-APP-01",
-        "PCT-APP-02"
-      ],
-      "advancementConditions": [
-        "Chooses the correct base at each step",
-        "Explains ordering in two transaction contexts"
+        "s014",
+        "s015",
+        "s016"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
         "transferRequired": true
-      },
-      "interventions": [
-        "stepwise-value-table",
-        "base-at-each-step-cue"
-      ],
-      "transferTargets": [
-        "PCT-APP-07",
-        "PCT-APP-10"
-      ]
+      }
     },
     {
-      "id": "PCT-APP-05",
+      "id": "s019",
       "studentName": "Work Backward from a Percent Change",
-      "competency": "Recover an original value from a final value after a known percent increase or decrease.",
-      "band": "core-to-advanced",
       "requiredPrerequisites": [
-        "PCT-CALC-03",
-        "PCT-APP-02"
+        "s013",
+        "s016"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-APP-02",
-        "PCT-CALC-03"
-      ],
-      "advancementConditions": [
-        "Builds final = multiplier × original",
-        "Checks recovered original forward"
+        "s016",
+        "s013"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "forward-equation-then-invert",
-        "multiplier-cue",
-        "check-forward"
-      ],
-      "transferTargets": [
-        "PCT-APP-06",
-        "PCT-APP-07"
-      ]
+      }
     },
     {
-      "id": "PCT-APP-06",
+      "id": "s020",
       "studentName": "Compare Values Using the Correct Reference",
-      "competency": "Compare two values directionally by percent, select the stated reference base, and explain why reversing the comparison changes the percent.",
-      "band": "advanced",
       "requiredPrerequisites": [
-        "PCT-CALC-02",
-        "PCT-APP-03"
+        "s012",
+        "s017"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-APP-03",
-        "PCT-CALC-02"
-      ],
-      "advancementConditions": [
-        "States the reference base before computing",
-        "Computes and distinguishes both comparison directions"
+        "s017",
+        "s012"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "reference-base-cue",
-        "two-direction-comparison-table"
-      ],
-      "transferTargets": [
-        "PCT-APP-10"
-      ]
+      }
     },
     {
-      "id": "PCT-APP-07",
+      "id": "s021",
       "studentName": "Repeated Percent Changes",
-      "competency": "Model repeated or successive percent changes with multiplicative factors and explain why rates generally cannot be added.",
-      "band": "advanced",
       "requiredPrerequisites": [
-        "PCT-APP-02"
+        "s016"
       ],
       "supportingSkills": [
-        "PCT-APP-04"
+        "s018"
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-APP-02"
-      ],
-      "advancementConditions": [
-        "Uses successive multipliers",
-        "Explains base change between steps"
+        "s016"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
         "transferRequired": true
-      },
-      "interventions": [
-        "multiplier-chain",
-        "value-after-each-step-table"
-      ],
-      "transferTargets": [
-        "PCT-APP-08",
-        "PCT-APP-10",
-        "AR-NL-01"
-      ]
+      }
     },
     {
-      "id": "PCT-APP-08",
+      "id": "s022",
       "studentName": "Growth and Decay with Percents",
-      "competency": "Generalize repeated percent change into an exponential growth or decay model and interpret its parameters.",
-      "band": "advanced-transfer",
       "requiredPrerequisites": [
-        "PCT-APP-07"
+        "s021"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-APP-07",
-        "PCT-APP-02"
-      ],
-      "advancementConditions": [
-        "Builds correct repeated multiplier",
-        "Interprets initial value, factor, and period"
+        "s021",
+        "s016"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "repeated-multiplier-table",
-        "linear-versus-exponential-contrast"
-      ],
-      "transferTargets": [
-        "AR-NL-01"
-      ]
+      }
     },
     {
-      "id": "PCT-APP-09",
+      "id": "s023",
       "studentName": "Percent Error",
-      "competency": "Calculate and interpret absolute percent error using the accepted value as the reference denominator.",
-      "band": "core-to-advanced",
       "requiredPrerequisites": [
-        "PCT-CALC-02",
-        "FND-NUM-01"
+        "s012"
       ],
       "supportingSkills": [
-        "PCT-APP-03"
+        "s017"
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-CALC-02",
-        "FND-NUM-01"
-      ],
-      "advancementConditions": [
-        "Uses accepted value as reference",
-        "Interprets error magnitude with units/context"
+        "s012"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "accepted-value-cue",
-        "absolute-difference-first"
-      ],
-      "transferTargets": [
-        "PCT-APP-10"
-      ]
+      }
     },
     {
-      "id": "PCT-UNIT-01",
+      "id": "s024",
       "studentName": "Convert Units with Rates",
-      "competency": "Use conversion factors and unit cancellation to solve proportional measurement problems connected to rate and percent contexts.",
-      "band": "core",
       "requiredPrerequisites": [
-        "PCT-RATE-01",
-        "FND-NUM-01"
+        "s006"
       ],
       "supportingSkills": [
-        "PCT-PROP-02"
+        "s008"
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "PCT-RATE-01",
-        "FND-NUM-01"
-      ],
-      "advancementConditions": [
-        "Orients conversion factor by cancellation",
-        "Solves one multi-step conversion"
+        "s006"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
-      },
-      "interventions": [
-        "unit-cancellation-frame",
-        "conversion-factor-orientation-cue"
-      ],
-      "transferTargets": [
-        "PCT-APP-10",
-        "QR-UNIT-01"
-      ]
+      }
     },
     {
-      "id": "PCT-APP-10",
+      "id": "s025",
       "studentName": "Multi-Step Percent Challenges",
-      "competency": "Select and combine proportional, percent, and unit relationships to solve unfamiliar multi-step real-world problems and justify the model.",
-      "band": "advanced-transfer",
       "requiredPrerequisites": [
-        "PCT-LANG-01"
+        "s014"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [
         {
-          "id": "multi-step-pathways",
-          "mode": "anyOf",
-          "minimumSatisfied": 2,
           "skillIds": [
-            "PCT-PROP-03",
-            "PCT-APP-04",
-            "PCT-APP-05",
-            "PCT-APP-06",
-            "PCT-APP-07",
-            "PCT-APP-09",
-            "PCT-UNIT-01"
+            "s009",
+            "s018",
+            "s019",
+            "s020",
+            "s021",
+            "s023",
+            "s024"
           ]
         }
       ],
       "regressionTargets": [
-        "PCT-LANG-01",
-        "PCT-PROP-03",
-        "PCT-APP-04",
-        "PCT-APP-05",
-        "PCT-APP-06",
-        "PCT-APP-07",
-        "PCT-APP-09",
-        "PCT-UNIT-01"
-      ],
-      "advancementConditions": [
-        "Chooses a valid multi-step model independently",
-        "Explains bases, units, and reasonableness",
-        "Succeeds on a fresh transfer context"
+        "s014",
+        "s009",
+        "s018",
+        "s019",
+        "s020",
+        "s021",
+        "s023",
+        "s024"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
         "transferRequired": true
-      },
-      "interventions": [
-        "known-unknown-plan",
-        "stepwise-model-frame",
-        "teacher-intervention"
-      ],
-      "transferTargets": [
-        "AR-NL-01"
-      ]
+      }
     }
   ]
 }

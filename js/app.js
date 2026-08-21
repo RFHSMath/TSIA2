@@ -86,7 +86,7 @@ function renderComplete() {
   els.hintButton.hidden = true;
   els.feedback.hidden = false;
   els.feedback.className = 'feedback good';
-  els.feedback.innerHTML = '<strong>Well done.</strong>Your answers helped the practice adjust, check gaps, and move into harder work.';
+  els.feedback.innerHTML = '<strong>Well done.</strong> Your answers helped the practice adjust, check gaps, and move into harder work.';
   els.next.textContent = 'Practice again';
   els.next.hidden = false;
   els.next.onclick = restart;

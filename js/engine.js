@@ -83,8 +83,12 @@ function updateMastery({ state, skill, question, correct, hintLevel }) {
   next.recent = [...next.recent, { questionId: question.id, correct, hintLevel }].slice(-4);
   next.status = deriveStatus(next, skill.masteryEvidence);
 
-  // A single later miss should create uncertainty, not erase established mastery.
-  if (!correct && previous.status === 'Mastered') next.status = 'Near Mastery';
+  // Preserve established mastery after one contradiction; require repeated
+  // independent misses before lowering the status.
+  if (!correct && previous.status === 'Mastered') {
+    const independentMisses = next.recent.filter(item => !item.correct && item.hintLevel === 0).length;
+    next.status = independentMisses >= 2 ? 'Near Mastery' : 'Mastered';
+  }
 
   state.mastery[skill.id] = next;
   return {
@@ -120,6 +124,7 @@ function explainRoute({ action, correct, choice, skill, targetSkill, relationshi
     if (action === 'ADVANCE') return `The response adds positive evidence for ${skill.studentName} and supports moving forward.`;
     if (action === 'RETRY') return 'The idea is correct; a fresh problem will confirm that the success transfers.';
   }
+  if (choice.feedback) return choice.feedback;
   if (action === 'DIAGNOSE') {
     return `The response suggests ${choice.evidence?.misconceptionLabel ?? 'a specific uncertainty'}, so the next item will test that hypothesis before any regression.`;
   }
@@ -160,9 +165,8 @@ export function evaluateResponse({ question, choiceId, state, skillsById, questi
     attemptedSkill: skill.id,
     questionId: question.id,
     correctness: choice.correct,
-    misconceptionEvidence: choice.evidence?.misconceptionId ? [{
-      id: choice.evidence.misconceptionId,
-      label: choice.evidence.misconceptionLabel,
+    misconceptionEvidence: (choice.evidence?.kind === 'misconception-hypothesis' || choice.evidence?.misconceptionId) ? [{
+      kind: choice.evidence?.kind ?? 'misconception-hypothesis',
       confidence: choice.evidence.confidence ?? 'medium'
     }] : [],
     prerequisiteEvidence: choice.evidence?.prerequisiteSkillId ? {
@@ -170,7 +174,7 @@ export function evaluateResponse({ question, choiceId, state, skillsById, questi
       relationship: relationshipFor(skill, choice.evidence.prerequisiteSkillId),
       confidence: choice.evidence.confidence ?? 'medium'
     } : null,
-    errorType: choice.evidence?.errorType ?? null,
+    errorType: choice.evidence?.kind === 'generic-error' ? 'generic-error' : choice.evidence?.errorType ?? null,
     assistance: { hintLevel, independent: hintLevel === 0 },
     masteryEvidenceChange: masteryChange,
     recommendedNextAction: action,

@@ -1,0 +1,60 @@
+{
+  "skillPath": [
+    {"id":"QR-PCT-01","name":"Percent as a Number","status":"mastered","tests":["TSIA2","SAT","ACT"]},
+    {"id":"QR-PCT-02","name":"Percent of a Number","status":"mastered","tests":["TSIA2","SAT","ACT"]},
+    {"id":"QR-PCT-03","name":"Part and Whole","status":"active","tests":["TSIA2","SAT","ACT"]},
+    {"id":"QR-PCT-04","name":"Percent Change","status":"active","tests":["TSIA2","SAT","ACT"]},
+    {"id":"QR-PCT-05","name":"Multi-Step Applications","status":"locked","tests":["TSIA2","SAT","ACT"]},
+    {"id":"QR-PCT-06","name":"Advanced Transfer","status":"locked","tests":["SAT","ACT"]}
+  ],
+  "questions": [
+    {
+      "id":"PCT-APP-001",
+      "skill":"QR-PCT-04",
+      "level":"TSIA2 Target",
+      "prompt":"A jacket originally costs $40. The price increases by 25%. What is the new price?",
+      "choices":[
+        {"text":"$10","type":"increase_only"},
+        {"text":"$45","type":"arithmetic_error"},
+        {"text":"$50","type":"correct"},
+        {"text":"$65","type":"percent_as_whole"}
+      ]
+    },
+    {
+      "id":"PCT-DIAG-001",
+      "skill":"QR-PCT-03",
+      "level":"Prerequisite Check",
+      "prompt":"You found that 25% of $40 is $10. What does that $10 represent?",
+      "choices":[
+        {"text":"The original price","type":"wrong"},
+        {"text":"The amount of the increase","type":"correct"},
+        {"text":"The new price","type":"wrong"},
+        {"text":"The percent increase","type":"wrong"}
+      ]
+    },
+    {
+      "id":"PCT-RETRY-001",
+      "skill":"QR-PCT-04",
+      "level":"TSIA2 Target",
+      "prompt":"A $60 service fee increases by 20%. What is the new fee?",
+      "choices":[
+        {"text":"$12","type":"increase_only"},
+        {"text":"$68","type":"arithmetic_error"},
+        {"text":"$72","type":"correct"},
+        {"text":"$80","type":"percent_as_whole"}
+      ]
+    },
+    {
+      "id":"PCT-ADV-001",
+      "skill":"QR-PCT-05",
+      "level":"SAT / ACT Extension",
+      "prompt":"A price is increased by 20% and then discounted by 20%. Compared with the original price, the final price is:",
+      "choices":[
+        {"text":"4% lower","type":"correct"},
+        {"text":"The same","type":"symmetric_percent"},
+        {"text":"4% higher","type":"wrong"},
+        {"text":"40% lower","type":"additive_percent"}
+      ]
+    }
+  ]
+}

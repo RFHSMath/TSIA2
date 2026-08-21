@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TSIA2 Math Prep Prototype</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Prototype 0.1</p>
+        <h1>TSIA2 Math Prep</h1>
+        <p class="subhead">One precise next step at a time.</p>
+      </div>
+    </header>
+
+    <section class="progress-panel" aria-label="Skill progress">
+      <div class="progress-copy">
+        <span id="skillName">Percent Applications</span>
+        <span id="skillStatus">Developing</span>
+      </div>
+      <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+      <div id="skillPath" class="skill-path"></div>
+    </section>
+
+    <section class="question-card">
+      <div class="question-meta">
+        <span id="levelLabel">TSIA2 Target</span>
+        <span id="attemptLabel">Attempt 1</span>
+      </div>
+      <h2 id="questionPrompt"></h2>
+      <div id="answerChoices" class="choices"></div>
+      <div id="feedback" class="feedback" hidden></div>
+      <button id="nextButton" class="next-button" hidden>Continue</button>
+    </section>
+
+    <section class="why-panel">
+      <h3>Practice that responds to what you know</h3>
+      <p>Your answers determine what comes next. The practice can step back to a prerequisite when needed or move forward to a harder application when you are ready.</p>
+    </section>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

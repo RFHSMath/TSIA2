@@ -111,7 +111,10 @@ function chooseAction({ question, choice, state, skill, correct }) {
   let action = configured?.action ?? (correct ? 'ADVANCE' : 'RETRY');
 
   const record = state.mastery[skill.id];
-  const unresolvedGenericError = !correct && !choice.evidence?.misconceptionId && !choice.evidence?.prerequisiteSkillId;
+  const classifiedEvidence = choice.evidence?.misconceptionId ||
+    choice.evidence?.prerequisiteSkillId ||
+    ['misconception-hypothesis', 'prerequisite-hypothesis'].includes(choice.evidence?.kind);
+  const unresolvedGenericError = !correct && !classifiedEvidence;
   if (unresolvedGenericError && hasConflictingRecentEvidence(record)) action = 'REVIEW';
 
   if (!ACTIONS.includes(action)) throw new Error(`Unsupported routing action: ${action}`);

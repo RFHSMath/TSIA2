@@ -859,21 +859,6 @@
           "id": "b",
           "text": "$90",
           "correct": false,
-          "feedback": "After the discount, calculate tax from the sale price, not the original price.",
-          "evidence": {
-            "kind": "misconception-hypothesis",
-            "confidence": "high"
-          },
-          "route": {
-            "action": "DIAGNOSE",
-            "targetSkillId": "s018",
-            "nextQuestionId": "q016"
-          }
-        },
-        {
-          "id": "c",
-          "text": "$90",
-          "correct": false,
           "feedback": "Apply each percent to the value that exists at that step instead of combining the rates first.",
           "evidence": {
             "kind": "misconception-hypothesis",

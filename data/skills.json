@@ -1,0 +1,483 @@
+{
+  "version": "0.2.2",
+  "skills": [
+    {
+      "id": "s001",
+      "studentName": "What Percent Means",
+      "requiredPrerequisites": [],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s002",
+      "studentName": "Decimals and Percents",
+      "requiredPrerequisites": [
+        "s001"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s001"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 3,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s003",
+      "studentName": "Fractions and Percents",
+      "requiredPrerequisites": [
+        "s001"
+      ],
+      "supportingSkills": [
+        "s002",
+        "s008"
+      ],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s001"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 3,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s004",
+      "studentName": "Compare Fractions, Decimals, and Percents",
+      "requiredPrerequisites": [
+        "s002",
+        "s003"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s002",
+        "s003"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s005",
+      "studentName": "Write and Read Ratios",
+      "requiredPrerequisites": [],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s006",
+      "studentName": "Find a Unit Rate",
+      "requiredPrerequisites": [
+        "s005"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s005"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s007",
+      "studentName": "Build Equivalent Ratios",
+      "requiredPrerequisites": [
+        "s005"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s005"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s008",
+      "studentName": "Solve a Proportion",
+      "requiredPrerequisites": [
+        "s007"
+      ],
+      "supportingSkills": [
+        "s006"
+      ],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s007"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s009",
+      "studentName": "Proportional Relationships",
+      "requiredPrerequisites": [
+        "s006"
+      ],
+      "supportingSkills": [
+        "s008"
+      ],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s006"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 3,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s010",
+      "studentName": "Find the Part, Whole, and Percent",
+      "requiredPrerequisites": [
+        "s001"
+      ],
+      "supportingSkills": [
+        "s005"
+      ],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s001"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 3,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s011",
+      "studentName": "Find a Percent of a Number",
+      "requiredPrerequisites": [
+        "s010"
+      ],
+      "supportingSkills": [
+        "s004"
+      ],
+      "alternativePrerequisiteGroups": [
+        {
+          "skillIds": [
+            "s002",
+            "s008"
+          ]
+        }
+      ],
+      "regressionTargets": [
+        "s010",
+        "s002",
+        "s008"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 3,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s012",
+      "studentName": "What Percent Is It?",
+      "requiredPrerequisites": [
+        "s010"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [
+        {
+          "skillIds": [
+            "s002",
+            "s008"
+          ]
+        }
+      ],
+      "regressionTargets": [
+        "s010",
+        "s002",
+        "s008"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s013",
+      "studentName": "Find the Original Whole",
+      "requiredPrerequisites": [
+        "s010"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [
+        {
+          "skillIds": [
+            "s002",
+            "s008"
+          ]
+        }
+      ],
+      "regressionTargets": [
+        "s010",
+        "s002",
+        "s008"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s014",
+      "studentName": "Read Percent Problems",
+      "requiredPrerequisites": [
+        "s010"
+      ],
+      "supportingSkills": [
+        "s011"
+      ],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s010"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 3,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s015",
+      "studentName": "Find the Amount of Change",
+      "requiredPrerequisites": [
+        "s011",
+        "s014"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s014",
+        "s011"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s016",
+      "studentName": "Find the New Value",
+      "requiredPrerequisites": [
+        "s011",
+        "s014"
+      ],
+      "supportingSkills": [
+        "s015"
+      ],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s014",
+        "s011"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 3,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s017",
+      "studentName": "Find Percent Change",
+      "requiredPrerequisites": [
+        "s012",
+        "s014",
+        "s015"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s014",
+        "s015",
+        "s012"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 3,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s018",
+      "studentName": "Discount, Tax, Tip, and Markup",
+      "requiredPrerequisites": [
+        "s014",
+        "s015",
+        "s016"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s014",
+        "s015",
+        "s016"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 3,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s019",
+      "studentName": "Work Backward from a Percent Change",
+      "requiredPrerequisites": [
+        "s013",
+        "s016"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s016",
+        "s013"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s020",
+      "studentName": "Compare Values Using the Correct Reference",
+      "requiredPrerequisites": [
+        "s012",
+        "s017"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s017",
+        "s012"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s021",
+      "studentName": "Repeated Percent Changes",
+      "requiredPrerequisites": [
+        "s016"
+      ],
+      "supportingSkills": [
+        "s018"
+      ],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s016"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 3,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s022",
+      "studentName": "Growth and Decay with Percents",
+      "requiredPrerequisites": [
+        "s021"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s021",
+        "s016"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s023",
+      "studentName": "Percent Error",
+      "requiredPrerequisites": [
+        "s012"
+      ],
+      "supportingSkills": [
+        "s017"
+      ],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s012"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s024",
+      "studentName": "Convert Units with Rates",
+      "requiredPrerequisites": [
+        "s006"
+      ],
+      "supportingSkills": [
+        "s008"
+      ],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "s006"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s025",
+      "studentName": "Multi-Step Percent Challenges",
+      "requiredPrerequisites": [
+        "s014"
+      ],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [
+        {
+          "skillIds": [
+            "s009",
+            "s018",
+            "s019",
+            "s020",
+            "s021",
+            "s023",
+            "s024"
+          ]
+        }
+      ],
+      "regressionTargets": [
+        "s014",
+        "s009",
+        "s018",
+        "s019",
+        "s020",
+        "s021",
+        "s023",
+        "s024"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 3,
+        "transferRequired": true
+      }
+    }
+  ]
+}

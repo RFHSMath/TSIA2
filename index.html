@@ -3,45 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TSIA2 Math Prep Prototype</title>
+  <meta name="theme-color" content="#173f7a">
+  <title>TSIA2 Math Practice</title>
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
   <main class="shell">
     <header class="topbar">
       <div>
-        <p class="eyebrow">Prototype 0.1</p>
-        <h1>TSIA2 Math Prep</h1>
-        <p class="subhead">One precise next step at a time.</p>
+        <p class="eyebrow">Math practice</p>
+        <h1>One useful step at a time</h1>
+        <p class="subhead">Your answers help choose what comes next.</p>
       </div>
+      <button id="restartButton" class="quiet-button" type="button">Start over</button>
     </header>
 
-    <section class="progress-panel" aria-label="Skill progress">
+    <section class="progress-panel" aria-label="Your progress">
       <div class="progress-copy">
-        <span id="skillName">Percent Applications</span>
-        <span id="skillStatus">Developing</span>
+        <span id="skillName">Getting your first problem ready</span>
+        <span id="skillStatus">Not assessed</span>
       </div>
-      <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
-      <div id="skillPath" class="skill-path"></div>
+      <div class="progress-track" aria-hidden="true"><div id="progressBar" class="progress-bar"></div></div>
+      <p id="progressMessage" class="progress-message">Show what you know. You can move forward quickly.</p>
     </section>
 
-    <section class="question-card">
+    <section class="question-card" aria-live="polite">
       <div class="question-meta">
-        <span id="levelLabel">TSIA2 Target</span>
-        <span id="attemptLabel">Attempt 1</span>
+        <span id="levelLabel">Starting problem</span>
+        <span id="attemptLabel">Question 1</span>
       </div>
-      <h2 id="questionPrompt"></h2>
+      <h2 id="questionPrompt">Loading your practice…</h2>
       <div id="answerChoices" class="choices"></div>
+      <div class="help-row">
+        <button id="hintButton" class="quiet-button" type="button">Give me a small hint</button>
+      </div>
+      <div id="hint" class="hint" hidden></div>
       <div id="feedback" class="feedback" hidden></div>
-      <button id="nextButton" class="next-button" hidden>Continue</button>
+      <button id="nextButton" class="next-button" type="button" hidden>Continue</button>
     </section>
 
     <section class="why-panel">
-      <h3>Practice that responds to what you know</h3>
-      <p>Your answers determine what comes next. The practice can step back to a prerequisite when needed or move forward to a harder application when you are ready.</p>
+      <h3>How this practice works</h3>
+      <p>If an answer shows a specific gap, you will get a short check or a smaller step. When you show understanding, you move ahead to new and harder problems.</p>
     </section>
   </main>
 
+  <noscript>This practice needs JavaScript enabled in your browser.</noscript>
   <script type="module" src="js/app.js"></script>
 </body>
 </html>

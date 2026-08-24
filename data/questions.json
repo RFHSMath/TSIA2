@@ -1,13 +1,13 @@
 {
-  "version": "0.2.1",
+  "version": "0.3.0",
   "startingQuestionId": "q001",
   "diagnosticEntryQuestionIds": [
     "q001",
-    "q024",
-    "q026",
     "q028",
     "q030",
-    "q032"
+    "q032",
+    "q034",
+    "q036"
   ],
   "questions": [
     {
@@ -30,7 +30,7 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s014",
-            "nextQuestionId": "q008"
+            "nextQuestionId": "q009"
           }
         },
         {
@@ -46,7 +46,7 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s011",
-            "nextQuestionId": "q006"
+            "nextQuestionId": "q007"
           }
         },
         {
@@ -107,7 +107,7 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s014",
-            "nextQuestionId": "q008"
+            "nextQuestionId": "q009"
           }
         },
         {
@@ -122,7 +122,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s015",
-            "nextQuestionId": "q012"
+            "nextQuestionId": "q014"
           }
         },
         {
@@ -137,7 +137,7 @@
           "route": {
             "action": "ADVANCE",
             "targetSkillId": "s018",
-            "nextQuestionId": "q015"
+            "nextQuestionId": "q018"
           }
         },
         {
@@ -152,14 +152,14 @@
           "route": {
             "action": "RETRY",
             "targetSkillId": "s016",
-            "nextQuestionId": "q022"
+            "nextQuestionId": "q026"
           }
         }
       ],
       "correctRoute": {
         "action": "ADVANCE",
         "targetSkillId": "s018",
-        "nextQuestionId": "q015"
+        "nextQuestionId": "q018"
       }
     },
     {
@@ -197,7 +197,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s002",
-            "nextQuestionId": "q005"
+            "nextQuestionId": "q006"
           }
         },
         {
@@ -212,7 +212,7 @@
           "route": {
             "action": "RETRY",
             "targetSkillId": "s011",
-            "nextQuestionId": "q007"
+            "nextQuestionId": "q008"
           }
         },
         {
@@ -227,14 +227,14 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s002",
-            "nextQuestionId": "q005"
+            "nextQuestionId": "q006"
           }
         }
       ],
       "correctRoute": {
         "action": "RETRY",
         "targetSkillId": "s011",
-        "nextQuestionId": "q007"
+        "nextQuestionId": "q008"
       }
     },
     {
@@ -255,8 +255,8 @@
             "confidence": "high"
           },
           "route": {
-            "action": "REMEDIATE",
-            "targetSkillId": "s002",
+            "action": "RETRY",
+            "targetSkillId": "s001",
             "nextQuestionId": "q005"
           }
         },
@@ -277,13 +277,73 @@
         }
       ],
       "correctRoute": {
-        "action": "REMEDIATE",
-        "targetSkillId": "s002",
+        "action": "RETRY",
+        "targetSkillId": "s001",
         "nextQuestionId": "q005"
       }
     },
     {
       "id": "q005",
+      "skillId": "s001",
+      "role": "recovery",
+      "difficulty": "foundational",
+      "prompt": "Which fraction shows the meaning of 62%?",
+      "hint": "Read the percent as “out of 100.”",
+      "choices": [
+        {
+          "id": "a",
+          "text": "62/100",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s002",
+            "nextQuestionId": "q006"
+          }
+        },
+        {
+          "id": "b",
+          "text": "100/62",
+          "correct": false,
+          "feedback": "Identify which value is the part and which is the whole before dividing.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s001",
+            "nextQuestionId": "q004"
+          }
+        },
+        {
+          "id": "c",
+          "text": "62/1",
+          "correct": false,
+          "feedback": "Write the percent as a decimal or as a fraction over 100 before calculating.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s001",
+            "nextQuestionId": "q004"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "REMEDIATE",
+        "targetSkillId": "s002",
+        "nextQuestionId": "q006"
+      }
+    },
+    {
+      "id": "q006",
       "skillId": "s002",
       "role": "remediation",
       "difficulty": "foundational",
@@ -302,7 +362,7 @@
           "route": {
             "action": "RETRY",
             "targetSkillId": "s011",
-            "nextQuestionId": "q007"
+            "nextQuestionId": "q008"
           }
         },
         {
@@ -317,18 +377,18 @@
           "route": {
             "action": "TEACHER_INTERVENTION",
             "targetSkillId": "x001",
-            "nextQuestionId": "q005"
+            "nextQuestionId": "q006"
           }
         }
       ],
       "correctRoute": {
         "action": "RETRY",
         "targetSkillId": "s011",
-        "nextQuestionId": "q007"
+        "nextQuestionId": "q008"
       }
     },
     {
-      "id": "q006",
+      "id": "q007",
       "skillId": "s011",
       "role": "diagnostic",
       "difficulty": "core",
@@ -347,7 +407,7 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s014",
-            "nextQuestionId": "q008"
+            "nextQuestionId": "q009"
           }
         },
         {
@@ -378,18 +438,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s011",
-            "nextQuestionId": "q007"
+            "nextQuestionId": "q008"
           }
         }
       ],
       "correctRoute": {
         "action": "DIAGNOSE",
         "targetSkillId": "s014",
-        "nextQuestionId": "q008"
+        "nextQuestionId": "q009"
       }
     },
     {
-      "id": "q007",
+      "id": "q008",
       "skillId": "s011",
       "role": "recovery",
       "difficulty": "core",
@@ -408,7 +468,7 @@
           "route": {
             "action": "RETRY",
             "targetSkillId": "s016",
-            "nextQuestionId": "q011"
+            "nextQuestionId": "q013"
           }
         },
         {
@@ -424,7 +484,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s002",
-            "nextQuestionId": "q005"
+            "nextQuestionId": "q006"
           }
         },
         {
@@ -439,18 +499,18 @@
           "route": {
             "action": "REVIEW",
             "targetSkillId": "s011",
-            "nextQuestionId": "q006"
+            "nextQuestionId": "q007"
           }
         }
       ],
       "correctRoute": {
         "action": "RETRY",
         "targetSkillId": "s016",
-        "nextQuestionId": "q011"
+        "nextQuestionId": "q013"
       }
     },
     {
-      "id": "q008",
+      "id": "q009",
       "skillId": "s014",
       "role": "diagnostic",
       "difficulty": "core",
@@ -469,7 +529,7 @@
           "route": {
             "action": "RETRY",
             "targetSkillId": "s016",
-            "nextQuestionId": "q011"
+            "nextQuestionId": "q013"
           }
         },
         {
@@ -484,7 +544,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s014",
-            "nextQuestionId": "q010"
+            "nextQuestionId": "q012"
           }
         },
         {
@@ -500,18 +560,18 @@
           "route": {
             "action": "REGRESS",
             "targetSkillId": "s010",
-            "nextQuestionId": "q009"
+            "nextQuestionId": "q010"
           }
         }
       ],
       "correctRoute": {
         "action": "RETRY",
         "targetSkillId": "s016",
-        "nextQuestionId": "q011"
+        "nextQuestionId": "q013"
       }
     },
     {
-      "id": "q009",
+      "id": "q010",
       "skillId": "s010",
       "role": "diagnostic",
       "difficulty": "core",
@@ -530,7 +590,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s010",
-            "nextQuestionId": "q009"
+            "nextQuestionId": "q010"
           }
         },
         {
@@ -545,7 +605,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s010",
-            "nextQuestionId": "q009"
+            "nextQuestionId": "q010"
           }
         },
         {
@@ -558,8 +618,68 @@
             "confidence": "high"
           },
           "route": {
+            "action": "RETRY",
+            "targetSkillId": "s010",
+            "nextQuestionId": "q011"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s010",
+        "nextQuestionId": "q011"
+      }
+    },
+    {
+      "id": "q011",
+      "skillId": "s010",
+      "role": "recovery",
+      "difficulty": "core",
+      "prompt": "In “24 is 40% of 60,” which number is the part?",
+      "hint": "Label the part, the whole, and the percent rate before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "24",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s014",
+            "nextQuestionId": "q012"
+          }
+        },
+        {
+          "id": "b",
+          "text": "60",
+          "correct": false,
+          "feedback": "Identify which value is the part and which is the whole before dividing.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s010",
+            "nextQuestionId": "q010"
+          }
+        },
+        {
+          "id": "c",
+          "text": "40",
+          "correct": false,
+          "feedback": "The percent is the rate, not the part. Match each number to part, whole, or rate.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s010",
             "nextQuestionId": "q010"
           }
         }
@@ -567,11 +687,11 @@
       "correctRoute": {
         "action": "REMEDIATE",
         "targetSkillId": "s014",
-        "nextQuestionId": "q010"
+        "nextQuestionId": "q012"
       }
     },
     {
-      "id": "q010",
+      "id": "q012",
       "skillId": "s014",
       "role": "remediation",
       "difficulty": "core",
@@ -590,7 +710,7 @@
           "route": {
             "action": "RETRY",
             "targetSkillId": "s016",
-            "nextQuestionId": "q011"
+            "nextQuestionId": "q013"
           }
         },
         {
@@ -605,18 +725,18 @@
           "route": {
             "action": "TEACHER_INTERVENTION",
             "targetSkillId": "s014",
-            "nextQuestionId": "q010"
+            "nextQuestionId": "q012"
           }
         }
       ],
       "correctRoute": {
         "action": "RETRY",
         "targetSkillId": "s016",
-        "nextQuestionId": "q011"
+        "nextQuestionId": "q013"
       }
     },
     {
-      "id": "q011",
+      "id": "q013",
       "skillId": "s016",
       "role": "recovery",
       "difficulty": "TSIA2-core",
@@ -635,7 +755,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s014",
-            "nextQuestionId": "q010"
+            "nextQuestionId": "q012"
           }
         },
         {
@@ -650,7 +770,7 @@
           "route": {
             "action": "ADVANCE",
             "targetSkillId": "s012",
-            "nextQuestionId": "q013"
+            "nextQuestionId": "q016"
           }
         },
         {
@@ -665,18 +785,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s015",
-            "nextQuestionId": "q012"
+            "nextQuestionId": "q014"
           }
         }
       ],
       "correctRoute": {
         "action": "ADVANCE",
         "targetSkillId": "s012",
-        "nextQuestionId": "q013"
+        "nextQuestionId": "q016"
       }
     },
     {
-      "id": "q012",
+      "id": "q014",
       "skillId": "s015",
       "role": "diagnostic",
       "difficulty": "core",
@@ -694,8 +814,8 @@
           },
           "route": {
             "action": "RETRY",
-            "targetSkillId": "s016",
-            "nextQuestionId": "q011"
+            "targetSkillId": "s015",
+            "nextQuestionId": "q015"
           }
         },
         {
@@ -710,18 +830,63 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s015",
-            "nextQuestionId": "q012"
+            "nextQuestionId": "q014"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s015",
+        "nextQuestionId": "q015"
+      }
+    },
+    {
+      "id": "q015",
+      "skillId": "s015",
+      "role": "recovery",
+      "difficulty": "core",
+      "prompt": "A value of $90 decreases by $18. Which calculation finds the new value?",
+      "hint": "Find the amount of change before deciding whether to add or subtract.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$90 − $18",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s016",
+            "nextQuestionId": "q013"
+          }
+        },
+        {
+          "id": "b",
+          "text": "$90 + $18",
+          "correct": false,
+          "feedback": "Check whether the situation says increase or decrease before combining the change with the original amount.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s015",
+            "nextQuestionId": "q014"
           }
         }
       ],
       "correctRoute": {
         "action": "RETRY",
         "targetSkillId": "s016",
-        "nextQuestionId": "q011"
+        "nextQuestionId": "q013"
       }
     },
     {
-      "id": "q013",
+      "id": "q016",
       "skillId": "s012",
       "role": "practice",
       "difficulty": "TSIA2-core",
@@ -740,7 +905,7 @@
           "route": {
             "action": "ADVANCE",
             "targetSkillId": "s013",
-            "nextQuestionId": "q014"
+            "nextQuestionId": "q017"
           }
         },
         {
@@ -755,7 +920,7 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s010",
-            "nextQuestionId": "q009"
+            "nextQuestionId": "q010"
           }
         },
         {
@@ -778,11 +943,11 @@
       "correctRoute": {
         "action": "ADVANCE",
         "targetSkillId": "s013",
-        "nextQuestionId": "q014"
+        "nextQuestionId": "q017"
       }
     },
     {
-      "id": "q014",
+      "id": "q017",
       "skillId": "s013",
       "role": "practice",
       "difficulty": "TSIA2-core",
@@ -801,7 +966,7 @@
           "route": {
             "action": "ADVANCE",
             "targetSkillId": "s018",
-            "nextQuestionId": "q015"
+            "nextQuestionId": "q018"
           }
         },
         {
@@ -816,7 +981,7 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s010",
-            "nextQuestionId": "q009"
+            "nextQuestionId": "q010"
           }
         },
         {
@@ -831,18 +996,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s013",
-            "nextQuestionId": "q014"
+            "nextQuestionId": "q017"
           }
         }
       ],
       "correctRoute": {
         "action": "ADVANCE",
         "targetSkillId": "s018",
-        "nextQuestionId": "q015"
+        "nextQuestionId": "q018"
       }
     },
     {
-      "id": "q015",
+      "id": "q018",
       "skillId": "s018",
       "role": "practice",
       "difficulty": "TSIA2-core",
@@ -861,7 +1026,7 @@
           "route": {
             "action": "TRANSFER",
             "targetSkillId": "s021",
-            "nextQuestionId": "q018"
+            "nextQuestionId": "q021"
           }
         },
         {
@@ -876,18 +1041,18 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s018",
-            "nextQuestionId": "q016"
+            "nextQuestionId": "q019"
           }
         }
       ],
       "correctRoute": {
         "action": "TRANSFER",
         "targetSkillId": "s021",
-        "nextQuestionId": "q018"
+        "nextQuestionId": "q021"
       }
     },
     {
-      "id": "q016",
+      "id": "q019",
       "skillId": "s018",
       "role": "diagnostic",
       "difficulty": "core",
@@ -906,7 +1071,7 @@
           "route": {
             "action": "RETRY",
             "targetSkillId": "s018",
-            "nextQuestionId": "q017"
+            "nextQuestionId": "q020"
           }
         },
         {
@@ -921,18 +1086,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s018",
-            "nextQuestionId": "q016"
+            "nextQuestionId": "q019"
           }
         }
       ],
       "correctRoute": {
         "action": "RETRY",
         "targetSkillId": "s018",
-        "nextQuestionId": "q017"
+        "nextQuestionId": "q020"
       }
     },
     {
-      "id": "q017",
+      "id": "q020",
       "skillId": "s018",
       "role": "recovery",
       "difficulty": "TSIA2-core",
@@ -951,7 +1116,7 @@
           "route": {
             "action": "TRANSFER",
             "targetSkillId": "s021",
-            "nextQuestionId": "q018"
+            "nextQuestionId": "q021"
           }
         },
         {
@@ -966,18 +1131,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s018",
-            "nextQuestionId": "q016"
+            "nextQuestionId": "q019"
           }
         }
       ],
       "correctRoute": {
         "action": "TRANSFER",
         "targetSkillId": "s021",
-        "nextQuestionId": "q018"
+        "nextQuestionId": "q021"
       }
     },
     {
-      "id": "q018",
+      "id": "q021",
       "skillId": "s021",
       "role": "transfer",
       "difficulty": "advanced",
@@ -996,7 +1161,7 @@
           "route": {
             "action": "TRANSFER",
             "targetSkillId": "s021",
-            "nextQuestionId": "q020"
+            "nextQuestionId": "q023"
           }
         },
         {
@@ -1011,7 +1176,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s021",
-            "nextQuestionId": "q019"
+            "nextQuestionId": "q022"
           }
         },
         {
@@ -1026,18 +1191,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s021",
-            "nextQuestionId": "q019"
+            "nextQuestionId": "q022"
           }
         }
       ],
       "correctRoute": {
         "action": "TRANSFER",
         "targetSkillId": "s021",
-        "nextQuestionId": "q020"
+        "nextQuestionId": "q023"
       }
     },
     {
-      "id": "q019",
+      "id": "q022",
       "skillId": "s021",
       "role": "remediation",
       "difficulty": "advanced",
@@ -1056,7 +1221,7 @@
           "route": {
             "action": "RETRY",
             "targetSkillId": "s021",
-            "nextQuestionId": "q020"
+            "nextQuestionId": "q023"
           }
         },
         {
@@ -1071,18 +1236,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s021",
-            "nextQuestionId": "q019"
+            "nextQuestionId": "q022"
           }
         }
       ],
       "correctRoute": {
         "action": "RETRY",
         "targetSkillId": "s021",
-        "nextQuestionId": "q020"
+        "nextQuestionId": "q023"
       }
     },
     {
-      "id": "q020",
+      "id": "q023",
       "skillId": "s021",
       "role": "recovery",
       "difficulty": "advanced",
@@ -1101,7 +1266,7 @@
           "route": {
             "action": "TRANSFER",
             "targetSkillId": "s022",
-            "nextQuestionId": "q021"
+            "nextQuestionId": "q024"
           }
         },
         {
@@ -1116,18 +1281,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s021",
-            "nextQuestionId": "q019"
+            "nextQuestionId": "q022"
           }
         }
       ],
       "correctRoute": {
         "action": "TRANSFER",
         "targetSkillId": "s022",
-        "nextQuestionId": "q021"
+        "nextQuestionId": "q024"
       }
     },
     {
-      "id": "q021",
+      "id": "q024",
       "skillId": "s022",
       "role": "transfer",
       "difficulty": "SAT-ACT-extension",
@@ -1144,8 +1309,9 @@
             "confidence": "high"
           },
           "route": {
-            "action": "ADVANCE",
-            "targetSkillId": "s022"
+            "action": "RETRY",
+            "targetSkillId": "s022",
+            "nextQuestionId": "q025"
           }
         },
         {
@@ -1160,7 +1326,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s022",
-            "nextQuestionId": "q019"
+            "nextQuestionId": "q022"
           }
         },
         {
@@ -1175,7 +1341,66 @@
           "route": {
             "action": "REVIEW",
             "targetSkillId": "s021",
-            "nextQuestionId": "q020"
+            "nextQuestionId": "q023"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s022",
+        "nextQuestionId": "q025"
+      }
+    },
+    {
+      "id": "q025",
+      "skillId": "s022",
+      "role": "transfer",
+      "difficulty": "SAT-ACT-extension",
+      "prompt": "A town has 800 residents and grows 5% each year. Which expression gives its population after t years?",
+      "hint": "Build the percent model first, then interpret the result in context.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "800(1.05)^t",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "s022"
+          }
+        },
+        {
+          "id": "b",
+          "text": "800(0.05)^t",
+          "correct": false,
+          "feedback": "The original amount is the base. The growth rate tells how much that base changes.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s022",
+            "nextQuestionId": "q022"
+          }
+        },
+        {
+          "id": "c",
+          "text": "800 + 0.05t",
+          "correct": false,
+          "feedback": "Successive percent changes multiply; they do not create the same numerical change each time.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REVIEW",
+            "targetSkillId": "s021",
+            "nextQuestionId": "q023"
           }
         }
       ],
@@ -1185,7 +1410,7 @@
       }
     },
     {
-      "id": "q022",
+      "id": "q026",
       "skillId": "s016",
       "role": "review",
       "difficulty": "TSIA2-core",
@@ -1204,7 +1429,7 @@
           "route": {
             "action": "ADVANCE",
             "targetSkillId": "s016",
-            "nextQuestionId": "q023"
+            "nextQuestionId": "q027"
           }
         },
         {
@@ -1219,18 +1444,18 @@
           "route": {
             "action": "RETRY",
             "targetSkillId": "s016",
-            "nextQuestionId": "q023"
+            "nextQuestionId": "q027"
           }
         }
       ],
       "correctRoute": {
         "action": "ADVANCE",
         "targetSkillId": "s016",
-        "nextQuestionId": "q023"
+        "nextQuestionId": "q027"
       }
     },
     {
-      "id": "q023",
+      "id": "q027",
       "skillId": "s016",
       "role": "recovery",
       "difficulty": "TSIA2-core",
@@ -1249,7 +1474,7 @@
           "route": {
             "action": "ADVANCE",
             "targetSkillId": "s018",
-            "nextQuestionId": "q015"
+            "nextQuestionId": "q018"
           }
         },
         {
@@ -1264,18 +1489,18 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s014",
-            "nextQuestionId": "q008"
+            "nextQuestionId": "q009"
           }
         }
       ],
       "correctRoute": {
         "action": "ADVANCE",
         "targetSkillId": "s018",
-        "nextQuestionId": "q015"
+        "nextQuestionId": "q018"
       }
     },
     {
-      "id": "q024",
+      "id": "q028",
       "skillId": "s012",
       "role": "diagnostic-entry",
       "difficulty": "TSIA2-core",
@@ -1294,7 +1519,7 @@
           "route": {
             "action": "ADVANCE",
             "targetSkillId": "s013",
-            "nextQuestionId": "q025"
+            "nextQuestionId": "q029"
           }
         },
         {
@@ -1309,7 +1534,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s012",
-            "nextQuestionId": "q024"
+            "nextQuestionId": "q028"
           }
         },
         {
@@ -1324,18 +1549,18 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s010",
-            "nextQuestionId": "q009"
+            "nextQuestionId": "q010"
           }
         }
       ],
       "correctRoute": {
         "action": "ADVANCE",
         "targetSkillId": "s013",
-        "nextQuestionId": "q025"
+        "nextQuestionId": "q029"
       }
     },
     {
-      "id": "q025",
+      "id": "q029",
       "skillId": "s013",
       "role": "transfer",
       "difficulty": "TSIA2-core",
@@ -1354,7 +1579,7 @@
           "route": {
             "action": "ADVANCE",
             "targetSkillId": "s018",
-            "nextQuestionId": "q015"
+            "nextQuestionId": "q018"
           }
         },
         {
@@ -1369,7 +1594,7 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s010",
-            "nextQuestionId": "q009"
+            "nextQuestionId": "q010"
           }
         },
         {
@@ -1384,18 +1609,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s013",
-            "nextQuestionId": "q025"
+            "nextQuestionId": "q029"
           }
         }
       ],
       "correctRoute": {
         "action": "ADVANCE",
         "targetSkillId": "s018",
-        "nextQuestionId": "q015"
+        "nextQuestionId": "q018"
       }
     },
     {
-      "id": "q026",
+      "id": "q030",
       "skillId": "s019",
       "role": "diagnostic-entry",
       "difficulty": "core-to-advanced",
@@ -1414,7 +1639,7 @@
           "route": {
             "action": "RETRY",
             "targetSkillId": "s019",
-            "nextQuestionId": "q027"
+            "nextQuestionId": "q031"
           }
         },
         {
@@ -1429,7 +1654,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s019",
-            "nextQuestionId": "q026"
+            "nextQuestionId": "q030"
           }
         },
         {
@@ -1444,18 +1669,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s019",
-            "nextQuestionId": "q026"
+            "nextQuestionId": "q030"
           }
         }
       ],
       "correctRoute": {
         "action": "RETRY",
         "targetSkillId": "s019",
-        "nextQuestionId": "q027"
+        "nextQuestionId": "q031"
       }
     },
     {
-      "id": "q027",
+      "id": "q031",
       "skillId": "s019",
       "role": "recovery",
       "difficulty": "core-to-advanced",
@@ -1474,7 +1699,7 @@
           "route": {
             "action": "TRANSFER",
             "targetSkillId": "s025",
-            "nextQuestionId": "q033"
+            "nextQuestionId": "q037"
           }
         },
         {
@@ -1489,7 +1714,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s019",
-            "nextQuestionId": "q026"
+            "nextQuestionId": "q030"
           }
         },
         {
@@ -1504,18 +1729,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s019",
-            "nextQuestionId": "q026"
+            "nextQuestionId": "q030"
           }
         }
       ],
       "correctRoute": {
         "action": "TRANSFER",
         "targetSkillId": "s025",
-        "nextQuestionId": "q033"
+        "nextQuestionId": "q037"
       }
     },
     {
-      "id": "q028",
+      "id": "q032",
       "skillId": "s020",
       "role": "diagnostic-entry",
       "difficulty": "advanced",
@@ -1534,7 +1759,7 @@
           "route": {
             "action": "RETRY",
             "targetSkillId": "s020",
-            "nextQuestionId": "q029"
+            "nextQuestionId": "q033"
           }
         },
         {
@@ -1549,7 +1774,7 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s020",
-            "nextQuestionId": "q029"
+            "nextQuestionId": "q033"
           }
         },
         {
@@ -1564,18 +1789,18 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s012",
-            "nextQuestionId": "q024"
+            "nextQuestionId": "q028"
           }
         }
       ],
       "correctRoute": {
         "action": "RETRY",
         "targetSkillId": "s020",
-        "nextQuestionId": "q029"
+        "nextQuestionId": "q033"
       }
     },
     {
-      "id": "q029",
+      "id": "q033",
       "skillId": "s020",
       "role": "recovery",
       "difficulty": "advanced",
@@ -1594,7 +1819,7 @@
           "route": {
             "action": "TRANSFER",
             "targetSkillId": "s025",
-            "nextQuestionId": "q034"
+            "nextQuestionId": "q038"
           }
         },
         {
@@ -1609,7 +1834,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s020",
-            "nextQuestionId": "q029"
+            "nextQuestionId": "q033"
           }
         },
         {
@@ -1624,18 +1849,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s020",
-            "nextQuestionId": "q029"
+            "nextQuestionId": "q033"
           }
         }
       ],
       "correctRoute": {
         "action": "TRANSFER",
         "targetSkillId": "s025",
-        "nextQuestionId": "q034"
+        "nextQuestionId": "q038"
       }
     },
     {
-      "id": "q030",
+      "id": "q034",
       "skillId": "s023",
       "role": "diagnostic-entry",
       "difficulty": "core-to-advanced",
@@ -1654,7 +1879,7 @@
           "route": {
             "action": "RETRY",
             "targetSkillId": "s023",
-            "nextQuestionId": "q031"
+            "nextQuestionId": "q035"
           }
         },
         {
@@ -1669,7 +1894,7 @@
           "route": {
             "action": "DIAGNOSE",
             "targetSkillId": "s023",
-            "nextQuestionId": "q031"
+            "nextQuestionId": "q035"
           }
         },
         {
@@ -1684,18 +1909,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s023",
-            "nextQuestionId": "q031"
+            "nextQuestionId": "q035"
           }
         }
       ],
       "correctRoute": {
         "action": "RETRY",
         "targetSkillId": "s023",
-        "nextQuestionId": "q031"
+        "nextQuestionId": "q035"
       }
     },
     {
-      "id": "q031",
+      "id": "q035",
       "skillId": "s023",
       "role": "recovery",
       "difficulty": "core-to-advanced",
@@ -1714,7 +1939,7 @@
           "route": {
             "action": "TRANSFER",
             "targetSkillId": "s025",
-            "nextQuestionId": "q035"
+            "nextQuestionId": "q039"
           }
         },
         {
@@ -1729,7 +1954,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s023",
-            "nextQuestionId": "q031"
+            "nextQuestionId": "q035"
           }
         },
         {
@@ -1744,18 +1969,18 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s023",
-            "nextQuestionId": "q031"
+            "nextQuestionId": "q035"
           }
         }
       ],
       "correctRoute": {
         "action": "TRANSFER",
         "targetSkillId": "s025",
-        "nextQuestionId": "q035"
+        "nextQuestionId": "q039"
       }
     },
     {
-      "id": "q032",
+      "id": "q036",
       "skillId": "s025",
       "role": "transfer",
       "difficulty": "SAT-ACT-extension",
@@ -1788,7 +2013,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s009",
-            "nextQuestionId": "q032"
+            "nextQuestionId": "q036"
           }
         },
         {
@@ -1803,7 +2028,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s009",
-            "nextQuestionId": "q032"
+            "nextQuestionId": "q036"
           }
         }
       ],
@@ -1813,7 +2038,7 @@
       }
     },
     {
-      "id": "q033",
+      "id": "q037",
       "skillId": "s025",
       "role": "transfer",
       "difficulty": "SAT-ACT-extension",
@@ -1846,7 +2071,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s019",
-            "nextQuestionId": "q033"
+            "nextQuestionId": "q037"
           }
         },
         {
@@ -1861,7 +2086,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s019",
-            "nextQuestionId": "q033"
+            "nextQuestionId": "q037"
           }
         }
       ],
@@ -1871,7 +2096,7 @@
       }
     },
     {
-      "id": "q034",
+      "id": "q038",
       "skillId": "s025",
       "role": "transfer",
       "difficulty": "SAT-ACT-extension",
@@ -1904,7 +2129,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s020",
-            "nextQuestionId": "q034"
+            "nextQuestionId": "q038"
           }
         },
         {
@@ -1919,7 +2144,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s020",
-            "nextQuestionId": "q034"
+            "nextQuestionId": "q038"
           }
         }
       ],
@@ -1929,7 +2154,7 @@
       }
     },
     {
-      "id": "q035",
+      "id": "q039",
       "skillId": "s025",
       "role": "transfer",
       "difficulty": "SAT-ACT-extension",
@@ -1962,7 +2187,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s023",
-            "nextQuestionId": "q035"
+            "nextQuestionId": "q039"
           }
         },
         {
@@ -1977,7 +2202,7 @@
           "route": {
             "action": "REMEDIATE",
             "targetSkillId": "s023",
-            "nextQuestionId": "q035"
+            "nextQuestionId": "q039"
           }
         }
       ],

@@ -1,5 +1,5 @@
 {
-  "version": "0.2.2",
+  "version": "0.4.0",
   "skills": [
     {
       "id": "s001",
@@ -501,6 +501,76 @@
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s026",
+      "studentName": "Integer Operations",
+      "requiredPrerequisites": [],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "x001"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s027",
+      "studentName": "Fractions and Decimals",
+      "requiredPrerequisites": [],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "x001"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s028",
+      "studentName": "Order of Operations",
+      "requiredPrerequisites": [],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "x001"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s029",
+      "studentName": "Parts of Expressions",
+      "requiredPrerequisites": [],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "x001"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
+        "transferRequired": true
+      }
+    },
+    {
+      "id": "s030",
+      "studentName": "Simplifying Expressions",
+      "requiredPrerequisites": [],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": [
+        "x001"
+      ],
+      "masteryEvidence": {
+        "independentCorrect": 2,
         "transferRequired": true
       }
     },

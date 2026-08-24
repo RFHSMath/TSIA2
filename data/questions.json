@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "startingQuestionId": "q001",
   "diagnosticEntryQuestionIds": [
     "q001",
@@ -7,7 +7,12 @@
     "q030",
     "q032",
     "q034",
-    "q036"
+    "q036",
+    "q040",
+    "q044",
+    "q048",
+    "q052",
+    "q056"
   ],
   "questions": [
     {
@@ -2209,6 +2214,896 @@
       "correctRoute": {
         "action": "ADVANCE",
         "targetSkillId": "s025"
+      }
+    },
+    {
+      "id": "q040",
+      "skillId": "s026",
+      "role": "diagnostic-entry",
+      "difficulty": "foundational",
+      "prompt": "Evaluate: −7 + 12 − 9.",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "−4",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s026",
+            "nextQuestionId": "q041"
+          }
+        },
+        {
+          "id": "b",
+          "text": "14",
+          "correct": false,
+          "feedback": "Track each number’s sign as you combine integers; subtracting a positive moves left on the number line.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "s026",
+            "nextQuestionId": "q041"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s026",
+        "nextQuestionId": "q041"
+      }
+    },
+    {
+      "id": "q041",
+      "skillId": "s026",
+      "role": "diagnostic",
+      "difficulty": "foundational",
+      "prompt": "Evaluate: −8 + 3.",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "−5",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s026",
+            "nextQuestionId": "q042"
+          }
+        },
+        {
+          "id": "b",
+          "text": "11",
+          "correct": false,
+          "feedback": "Track each number’s sign as you combine integers; subtracting a positive moves left on the number line.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s026",
+            "nextQuestionId": "q042"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "REMEDIATE",
+        "targetSkillId": "s026",
+        "nextQuestionId": "q042"
+      }
+    },
+    {
+      "id": "q042",
+      "skillId": "s026",
+      "role": "remediation",
+      "difficulty": "foundational",
+      "prompt": "Which operation represents subtracting 6 from −2?",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "−2 − 6",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s026",
+            "nextQuestionId": "q043"
+          }
+        },
+        {
+          "id": "b",
+          "text": "−2 + 6",
+          "correct": false,
+          "feedback": "Track each number’s sign as you combine integers; subtracting a positive moves left on the number line.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s026",
+            "nextQuestionId": "q042"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s026",
+        "nextQuestionId": "q043"
+      }
+    },
+    {
+      "id": "q043",
+      "skillId": "s026",
+      "role": "recovery",
+      "difficulty": "foundational",
+      "prompt": "Evaluate: 15 − 22 + 4.",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "−3",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "s026"
+          }
+        },
+        {
+          "id": "b",
+          "text": "41",
+          "correct": false,
+          "feedback": "Track each number’s sign as you combine integers; subtracting a positive moves left on the number line.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REVIEW",
+            "targetSkillId": "s026",
+            "nextQuestionId": "q041"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "s026"
+      }
+    },
+    {
+      "id": "q044",
+      "skillId": "s027",
+      "role": "diagnostic-entry",
+      "difficulty": "foundational",
+      "prompt": "What is 3/4 + 1/8?",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "7/8",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s027",
+            "nextQuestionId": "q045"
+          }
+        },
+        {
+          "id": "b",
+          "text": "4/12",
+          "correct": false,
+          "feedback": "Fractions need a common denominator before you add or subtract them.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "s027",
+            "nextQuestionId": "q045"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s027",
+        "nextQuestionId": "q045"
+      }
+    },
+    {
+      "id": "q045",
+      "skillId": "s027",
+      "role": "diagnostic",
+      "difficulty": "foundational",
+      "prompt": "What is 0.6 + 0.07?",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "0.67",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s027",
+            "nextQuestionId": "q046"
+          }
+        },
+        {
+          "id": "b",
+          "text": "0.13",
+          "correct": false,
+          "feedback": "Fractions need a common denominator before you add or subtract them.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s027",
+            "nextQuestionId": "q046"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "REMEDIATE",
+        "targetSkillId": "s027",
+        "nextQuestionId": "q046"
+      }
+    },
+    {
+      "id": "q046",
+      "skillId": "s027",
+      "role": "remediation",
+      "difficulty": "foundational",
+      "prompt": "Which fraction is equivalent to 1/2?",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4/8",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s027",
+            "nextQuestionId": "q047"
+          }
+        },
+        {
+          "id": "b",
+          "text": "1/8",
+          "correct": false,
+          "feedback": "Fractions need a common denominator before you add or subtract them.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s027",
+            "nextQuestionId": "q046"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s027",
+        "nextQuestionId": "q047"
+      }
+    },
+    {
+      "id": "q047",
+      "skillId": "s027",
+      "role": "recovery",
+      "difficulty": "foundational",
+      "prompt": "What is 1.25 − 0.4?",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "0.85",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "s027"
+          }
+        },
+        {
+          "id": "b",
+          "text": "0.121",
+          "correct": false,
+          "feedback": "Fractions need a common denominator before you add or subtract them.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REVIEW",
+            "targetSkillId": "s027",
+            "nextQuestionId": "q045"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "s027"
+      }
+    },
+    {
+      "id": "q048",
+      "skillId": "s028",
+      "role": "diagnostic-entry",
+      "difficulty": "foundational",
+      "prompt": "Evaluate: 4 + 3(6 − 2).",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "16",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s028",
+            "nextQuestionId": "q049"
+          }
+        },
+        {
+          "id": "b",
+          "text": "28",
+          "correct": false,
+          "feedback": "Use grouping symbols first, then multiplication or division, before addition or subtraction.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "s028",
+            "nextQuestionId": "q049"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s028",
+        "nextQuestionId": "q049"
+      }
+    },
+    {
+      "id": "q049",
+      "skillId": "s028",
+      "role": "diagnostic",
+      "difficulty": "foundational",
+      "prompt": "Evaluate: 18 ÷ 3 + 2.",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "8",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s028",
+            "nextQuestionId": "q050"
+          }
+        },
+        {
+          "id": "b",
+          "text": "3.6",
+          "correct": false,
+          "feedback": "Use grouping symbols first, then multiplication or division, before addition or subtraction.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s028",
+            "nextQuestionId": "q050"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "REMEDIATE",
+        "targetSkillId": "s028",
+        "nextQuestionId": "q050"
+      }
+    },
+    {
+      "id": "q050",
+      "skillId": "s028",
+      "role": "remediation",
+      "difficulty": "foundational",
+      "prompt": "In 5 + 2 × 4, which operation is done first?",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2 × 4",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s028",
+            "nextQuestionId": "q051"
+          }
+        },
+        {
+          "id": "b",
+          "text": "5 + 2",
+          "correct": false,
+          "feedback": "Use grouping symbols first, then multiplication or division, before addition or subtraction.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s028",
+            "nextQuestionId": "q050"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s028",
+        "nextQuestionId": "q051"
+      }
+    },
+    {
+      "id": "q051",
+      "skillId": "s028",
+      "role": "recovery",
+      "difficulty": "foundational",
+      "prompt": "Evaluate: 20 − 2(3 + 4).",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "6",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "s028"
+          }
+        },
+        {
+          "id": "b",
+          "text": "126",
+          "correct": false,
+          "feedback": "Use grouping symbols first, then multiplication or division, before addition or subtraction.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REVIEW",
+            "targetSkillId": "s028",
+            "nextQuestionId": "q049"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "s028"
+      }
+    },
+    {
+      "id": "q052",
+      "skillId": "s029",
+      "role": "diagnostic-entry",
+      "difficulty": "core",
+      "prompt": "In 5x − 3, what is the coefficient of x?",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "5",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s029",
+            "nextQuestionId": "q053"
+          }
+        },
+        {
+          "id": "b",
+          "text": "−3",
+          "correct": false,
+          "feedback": "A coefficient multiplies a variable; a constant has no variable attached.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "s029",
+            "nextQuestionId": "q053"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s029",
+        "nextQuestionId": "q053"
+      }
+    },
+    {
+      "id": "q053",
+      "skillId": "s029",
+      "role": "diagnostic",
+      "difficulty": "core",
+      "prompt": "How many terms are in 4a + 2b − 7?",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "3",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s029",
+            "nextQuestionId": "q054"
+          }
+        },
+        {
+          "id": "b",
+          "text": "2",
+          "correct": false,
+          "feedback": "A coefficient multiplies a variable; a constant has no variable attached.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s029",
+            "nextQuestionId": "q054"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "REMEDIATE",
+        "targetSkillId": "s029",
+        "nextQuestionId": "q054"
+      }
+    },
+    {
+      "id": "q054",
+      "skillId": "s029",
+      "role": "remediation",
+      "difficulty": "core",
+      "prompt": "In 9y + 4, which number is the constant?",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s029",
+            "nextQuestionId": "q055"
+          }
+        },
+        {
+          "id": "b",
+          "text": "9",
+          "correct": false,
+          "feedback": "A coefficient multiplies a variable; a constant has no variable attached.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s029",
+            "nextQuestionId": "q054"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s029",
+        "nextQuestionId": "q055"
+      }
+    },
+    {
+      "id": "q055",
+      "skillId": "s029",
+      "role": "recovery",
+      "difficulty": "core",
+      "prompt": "In −6m + 8, what is the coefficient of m?",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "−6",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "s029"
+          }
+        },
+        {
+          "id": "b",
+          "text": "6",
+          "correct": false,
+          "feedback": "A coefficient multiplies a variable; a constant has no variable attached.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REVIEW",
+            "targetSkillId": "s029",
+            "nextQuestionId": "q053"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "s029"
+      }
+    },
+    {
+      "id": "q056",
+      "skillId": "s030",
+      "role": "diagnostic-entry",
+      "difficulty": "core",
+      "prompt": "Simplify: 3x + 5x − 2.",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "8x − 2",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s030",
+            "nextQuestionId": "q057"
+          }
+        },
+        {
+          "id": "b",
+          "text": "8x",
+          "correct": false,
+          "feedback": "Combine only terms with the same variable part, and keep constants separate.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "s030",
+            "nextQuestionId": "q057"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s030",
+        "nextQuestionId": "q057"
+      }
+    },
+    {
+      "id": "q057",
+      "skillId": "s030",
+      "role": "diagnostic",
+      "difficulty": "core",
+      "prompt": "Simplify: 4a − a.",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "3a",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s030",
+            "nextQuestionId": "q058"
+          }
+        },
+        {
+          "id": "b",
+          "text": "4",
+          "correct": false,
+          "feedback": "Combine only terms with the same variable part, and keep constants separate.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s030",
+            "nextQuestionId": "q058"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "REMEDIATE",
+        "targetSkillId": "s030",
+        "nextQuestionId": "q058"
+      }
+    },
+    {
+      "id": "q058",
+      "skillId": "s030",
+      "role": "remediation",
+      "difficulty": "core",
+      "prompt": "Simplify: 2(x + 3).",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2x + 6",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s030",
+            "nextQuestionId": "q059"
+          }
+        },
+        {
+          "id": "b",
+          "text": "2x + 3",
+          "correct": false,
+          "feedback": "Combine only terms with the same variable part, and keep constants separate.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s030",
+            "nextQuestionId": "q058"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s030",
+        "nextQuestionId": "q059"
+      }
+    },
+    {
+      "id": "q059",
+      "skillId": "s030",
+      "role": "recovery",
+      "difficulty": "core",
+      "prompt": "Simplify: 7y − 3 + 2y + 5.",
+      "hint": "Name the quantities and the relationship between them before calculating.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "9y + 2",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "s030"
+          }
+        },
+        {
+          "id": "b",
+          "text": "9y + 8",
+          "correct": false,
+          "feedback": "Combine only terms with the same variable part, and keep constants separate.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REVIEW",
+            "targetSkillId": "s030",
+            "nextQuestionId": "q057"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "s030"
       }
     }
   ]

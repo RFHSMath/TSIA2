@@ -15,12 +15,22 @@ const skills = skillsData.skills;
 const skillsById = new Map(skills.map(skill => [skill.id, skill]));
 const questionsById = new Map(questionData.questions.map(question => [question.id, question]));
 const storageKey = 'tsia2-percent-phase1-state';
+const entryIndexKey = 'tsia2-percent-phase1-entry-index';
+
+function nextDiagnosticEntry() {
+  const entries = questionData.diagnosticEntryQuestionIds ?? [questionData.startingQuestionId];
+  const previous = Number.parseInt(localStorage.getItem(entryIndexKey) ?? '-1', 10);
+  const next = Number.isFinite(previous) ? (previous + 1) % entries.length : 0;
+  localStorage.setItem(entryIndexKey, String(next));
+  return entries[next];
+}
 
 function loadState() {
   try {
     const saved = JSON.parse(localStorage.getItem(storageKey));
     if (saved?.currentQuestionId && questionsById.has(saved.currentQuestionId)) return saved;
   } catch {}
+  localStorage.setItem(entryIndexKey, '0');
   return createInitialState(questionData.startingQuestionId);
 }
 
@@ -152,7 +162,7 @@ function answer(question, choiceId) {
 
 function restart() {
   localStorage.removeItem(storageKey);
-  state = createInitialState(questionData.startingQuestionId);
+  state = createInitialState(nextDiagnosticEntry());
   saveState();
   renderQuestion();
 }

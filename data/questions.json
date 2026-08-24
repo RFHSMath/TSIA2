@@ -1,6 +1,14 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.1",
   "startingQuestionId": "q001",
+  "diagnosticEntryQuestionIds": [
+    "q001",
+    "q024",
+    "q026",
+    "q028",
+    "q030",
+    "q032"
+  ],
   "questions": [
     {
       "id": "q001",
@@ -142,9 +150,9 @@
             "confidence": "medium"
           },
           "route": {
-            "action": "DIAGNOSE",
-            "targetSkillId": "s011",
-            "nextQuestionId": "q006"
+            "action": "RETRY",
+            "targetSkillId": "s016",
+            "nextQuestionId": "q022"
           }
         }
       ],
@@ -308,6 +316,7 @@
           },
           "route": {
             "action": "TEACHER_INTERVENTION",
+            "targetSkillId": "x001",
             "nextQuestionId": "q005"
           }
         }
@@ -1263,6 +1272,718 @@
         "action": "ADVANCE",
         "targetSkillId": "s018",
         "nextQuestionId": "q015"
+      }
+    },
+    {
+      "id": "q024",
+      "skillId": "s012",
+      "role": "diagnostic-entry",
+      "difficulty": "TSIA2-core",
+      "prompt": "Use a proportion to solve: 18 is what percent of 60?",
+      "hint": "Match the part with 18 and the whole with 60 in a ratio equal to percent over 100.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "30%",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "s013",
+            "nextQuestionId": "q025"
+          }
+        },
+        {
+          "id": "b",
+          "text": "0.30%",
+          "correct": false,
+          "feedback": "Your ratio is useful; convert the decimal ratio to a percent by multiplying by 100.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s012",
+            "nextQuestionId": "q024"
+          }
+        },
+        {
+          "id": "c",
+          "text": "333.3%",
+          "correct": false,
+          "feedback": "Percent rate is part divided by whole, then expressed per 100.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "s010",
+            "nextQuestionId": "q009"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "s013",
+        "nextQuestionId": "q025"
+      }
+    },
+    {
+      "id": "q025",
+      "skillId": "s013",
+      "role": "transfer",
+      "difficulty": "TSIA2-core",
+      "prompt": "Use a proportion to solve: 18 is 30% of what number?",
+      "hint": "Set up 30/100 = 18/x, then solve for x and check the result.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "60",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "s018",
+            "nextQuestionId": "q015"
+          }
+        },
+        {
+          "id": "b",
+          "text": "5.4",
+          "correct": false,
+          "feedback": "When the whole is unknown, the known part equals rate times whole. Solve that relationship for the whole.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "s010",
+            "nextQuestionId": "q009"
+          }
+        },
+        {
+          "id": "c",
+          "text": "12.6",
+          "correct": false,
+          "feedback": "A rate such as 30% is not the same kind of quantity as 18. Use part = rate × whole.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s013",
+            "nextQuestionId": "q025"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "s018",
+        "nextQuestionId": "q015"
+      }
+    },
+    {
+      "id": "q026",
+      "skillId": "s019",
+      "role": "diagnostic-entry",
+      "difficulty": "core-to-advanced",
+      "prompt": "A jacket is on sale for $72 after a 20% discount. What was the original price?",
+      "hint": "After a 20% discount, the sale price is 80% of the original price.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$90",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s019",
+            "nextQuestionId": "q027"
+          }
+        },
+        {
+          "id": "b",
+          "text": "$57.60",
+          "correct": false,
+          "feedback": "Reverse the percent change with the remaining multiplier instead of subtracting a percent from the final value.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s019",
+            "nextQuestionId": "q026"
+          }
+        },
+        {
+          "id": "c",
+          "text": "$360",
+          "correct": false,
+          "feedback": "For a discount, divide by the remaining multiplier such as 0.80, not by the discount rate.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s019",
+            "nextQuestionId": "q026"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s019",
+        "nextQuestionId": "q027"
+      }
+    },
+    {
+      "id": "q027",
+      "skillId": "s019",
+      "role": "recovery",
+      "difficulty": "core-to-advanced",
+      "prompt": "A concert ticket costs $84 after a 30% discount. What was the original price?",
+      "hint": "The final price is 70% of the original price, so divide by 0.70.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$120",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "TRANSFER",
+            "targetSkillId": "s025",
+            "nextQuestionId": "q033"
+          }
+        },
+        {
+          "id": "b",
+          "text": "$58.80",
+          "correct": false,
+          "feedback": "Reverse the percent change with the remaining multiplier instead of subtracting a percent from the final value.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s019",
+            "nextQuestionId": "q026"
+          }
+        },
+        {
+          "id": "c",
+          "text": "$280",
+          "correct": false,
+          "feedback": "For a discount, divide by the remaining multiplier such as 0.80, not by the discount rate.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s019",
+            "nextQuestionId": "q026"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "TRANSFER",
+        "targetSkillId": "s025",
+        "nextQuestionId": "q033"
+      }
+    },
+    {
+      "id": "q028",
+      "skillId": "s020",
+      "role": "diagnostic-entry",
+      "difficulty": "advanced",
+      "prompt": "Store A costs $50. Store B costs $40. A is what percent more expensive than B?",
+      "hint": "For “more than B,” use B as the reference base: (A − B) ÷ B.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "25%",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s020",
+            "nextQuestionId": "q029"
+          }
+        },
+        {
+          "id": "b",
+          "text": "20%",
+          "correct": false,
+          "feedback": "Directional comparisons use the stated reference base, so reversing the comparison can change the percent.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "s020",
+            "nextQuestionId": "q029"
+          }
+        },
+        {
+          "id": "c",
+          "text": "10 percentage points",
+          "correct": false,
+          "feedback": "Name the reference value before dividing the change; “more than” and “less than” use different bases.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "s012",
+            "nextQuestionId": "q024"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s020",
+        "nextQuestionId": "q029"
+      }
+    },
+    {
+      "id": "q029",
+      "skillId": "s020",
+      "role": "recovery",
+      "difficulty": "advanced",
+      "prompt": "A plant grew from 80 cm to 100 cm. How much greater is the new height as a percent of the original height?",
+      "hint": "Use the original 80 cm as the reference: change ÷ original.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "25%",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "TRANSFER",
+            "targetSkillId": "s025",
+            "nextQuestionId": "q034"
+          }
+        },
+        {
+          "id": "b",
+          "text": "20%",
+          "correct": false,
+          "feedback": "Directional comparisons use the stated reference base, so reversing the comparison can change the percent.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s020",
+            "nextQuestionId": "q029"
+          }
+        },
+        {
+          "id": "c",
+          "text": "125%",
+          "correct": false,
+          "feedback": "Name the reference value before dividing the change; “more than” and “less than” use different bases.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s020",
+            "nextQuestionId": "q029"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "TRANSFER",
+        "targetSkillId": "s025",
+        "nextQuestionId": "q034"
+      }
+    },
+    {
+      "id": "q030",
+      "skillId": "s023",
+      "role": "diagnostic-entry",
+      "difficulty": "core-to-advanced",
+      "prompt": "A measured length is 9.6 cm and the accepted length is 10 cm. What is the percent error?",
+      "hint": "Find the absolute difference, then divide by the accepted value.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4%",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "RETRY",
+            "targetSkillId": "s023",
+            "nextQuestionId": "q031"
+          }
+        },
+        {
+          "id": "b",
+          "text": "4.17%",
+          "correct": false,
+          "feedback": "Percent error uses the accepted value as the denominator.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "DIAGNOSE",
+            "targetSkillId": "s023",
+            "nextQuestionId": "q031"
+          }
+        },
+        {
+          "id": "c",
+          "text": "−4%",
+          "correct": false,
+          "feedback": "Percent error describes a magnitude, so use the absolute difference before converting to a percent.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s023",
+            "nextQuestionId": "q031"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "RETRY",
+        "targetSkillId": "s023",
+        "nextQuestionId": "q031"
+      }
+    },
+    {
+      "id": "q031",
+      "skillId": "s023",
+      "role": "recovery",
+      "difficulty": "core-to-advanced",
+      "prompt": "A scale reads 48 g for an object whose accepted mass is 50 g. What is the percent error?",
+      "hint": "Use |measured − accepted| ÷ accepted × 100%.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4%",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "TRANSFER",
+            "targetSkillId": "s025",
+            "nextQuestionId": "q035"
+          }
+        },
+        {
+          "id": "b",
+          "text": "4.17%",
+          "correct": false,
+          "feedback": "Percent error uses the accepted value as the denominator.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s023",
+            "nextQuestionId": "q031"
+          }
+        },
+        {
+          "id": "c",
+          "text": "−4%",
+          "correct": false,
+          "feedback": "Percent error describes a magnitude, so use the absolute difference before converting to a percent.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s023",
+            "nextQuestionId": "q031"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "TRANSFER",
+        "targetSkillId": "s025",
+        "nextQuestionId": "q035"
+      }
+    },
+    {
+      "id": "q032",
+      "skillId": "s025",
+      "role": "transfer",
+      "difficulty": "SAT-ACT-extension",
+      "prompt": "A recipe needs 3/4 cup of oil for 6 servings. How much oil is needed for 14 servings?",
+      "hint": "Keep servings with servings and solve the proportion before checking whether the result is reasonable.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1 3/4 cups",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "s025"
+          }
+        },
+        {
+          "id": "b",
+          "text": "10 1/2 cups",
+          "correct": false,
+          "feedback": "Break the situation into its separate relationships before calculating.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s009",
+            "nextQuestionId": "q032"
+          }
+        },
+        {
+          "id": "c",
+          "text": "1 1/2 cups",
+          "correct": false,
+          "feedback": "Track the current value after each percent change; the second percent uses the updated value.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s009",
+            "nextQuestionId": "q032"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "s025"
+      }
+    },
+    {
+      "id": "q033",
+      "skillId": "s025",
+      "role": "transfer",
+      "difficulty": "SAT-ACT-extension",
+      "prompt": "A laptop is discounted 20%, then a $30 fee is added. The final cost is $750. What was the pre-discount price?",
+      "hint": "Subtract the fee first, then reverse the 20% discount by dividing by 0.80.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$900",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "s025"
+          }
+        },
+        {
+          "id": "b",
+          "text": "$600",
+          "correct": false,
+          "feedback": "Break the situation into its separate relationships before calculating.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s019",
+            "nextQuestionId": "q033"
+          }
+        },
+        {
+          "id": "c",
+          "text": "$960",
+          "correct": false,
+          "feedback": "Track the current value after each percent change; the second percent uses the updated value.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s019",
+            "nextQuestionId": "q033"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "s025"
+      }
+    },
+    {
+      "id": "q034",
+      "skillId": "s025",
+      "role": "transfer",
+      "difficulty": "SAT-ACT-extension",
+      "prompt": "A used car's price rises from $20,000 to $23,000, then falls 10% from the new price. Compared with $20,000, the final price is:",
+      "hint": "First compare the correct current base after the increase; then apply the decrease to $23,000.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "3.5% higher",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "s025"
+          }
+        },
+        {
+          "id": "b",
+          "text": "15% higher",
+          "correct": false,
+          "feedback": "Break the situation into its separate relationships before calculating.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s020",
+            "nextQuestionId": "q034"
+          }
+        },
+        {
+          "id": "c",
+          "text": "5% higher",
+          "correct": false,
+          "feedback": "Track the current value after each percent change; the second percent uses the updated value.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s020",
+            "nextQuestionId": "q034"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "s025"
+      }
+    },
+    {
+      "id": "q035",
+      "skillId": "s025",
+      "role": "transfer",
+      "difficulty": "SAT-ACT-extension",
+      "prompt": "A measurement of 96 cm is used to estimate an accepted length of 100 cm. The estimate is then used to calculate the perimeter of a square. Which setup best preserves the measurement error?",
+      "hint": "Calculate percent error using the accepted length, then apply the measurement consistently to the later quantity.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Use 4% error because |96 − 100| ÷ 100 = 0.04",
+          "correct": true,
+          "feedback": "That reasoning is correct.",
+          "evidence": {
+            "kind": "correct",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "ADVANCE",
+            "targetSkillId": "s025"
+          }
+        },
+        {
+          "id": "b",
+          "text": "Use 96 − 100 = −4% as the error",
+          "correct": false,
+          "feedback": "Percent error describes a magnitude, so use the absolute difference before converting to a percent.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s023",
+            "nextQuestionId": "q035"
+          }
+        },
+        {
+          "id": "c",
+          "text": "Use 4/96 because the measured value is always the denominator",
+          "correct": false,
+          "feedback": "Track the current value after each percent change; the second percent uses the updated value.",
+          "evidence": {
+            "kind": "misconception-hypothesis",
+            "confidence": "high"
+          },
+          "route": {
+            "action": "REMEDIATE",
+            "targetSkillId": "s023",
+            "nextQuestionId": "q035"
+          }
+        }
+      ],
+      "correctRoute": {
+        "action": "ADVANCE",
+        "targetSkillId": "s025"
       }
     }
   ]

@@ -62,6 +62,42 @@ function relationshipFor(skill, candidateId) {
   return null;
 }
 
+const READY_STATUSES = new Set(['Near Mastery', 'Mastered']);
+
+function dependencyEvidence(skillId, state) {
+  const record = state.mastery[skillId];
+  if (!record) return { skillId, status: 'Not Assessed', state: 'unassessed' };
+  if (READY_STATUSES.has(record.status)) return { skillId, status: record.status, state: 'ready' };
+  return {
+    skillId,
+    status: record.status,
+    state: record.incorrect > record.independentCorrect + record.assistedCorrect ? 'weak-evidence' : 'developing'
+  };
+}
+
+export function assessReadiness(skill, state) {
+  if (!skill) return null;
+  const required = (skill.requiredPrerequisites ?? []).map(id => dependencyEvidence(id, state));
+  const alternatives = (skill.alternativePrerequisiteGroups ?? []).map(group => {
+    const pathways = (group.skillIds ?? []).map(id => dependencyEvidence(id, state));
+    const minimumRequired = group.minimumRequired ?? group.minimumSatisfied ?? 1;
+    return {
+      minimumRequired,
+      readyCount: pathways.filter(item => item.state === 'ready').length,
+      pathways
+    };
+  });
+  const supporting = (skill.supportingSkills ?? []).map(id => dependencyEvidence(id, state));
+  return {
+    required,
+    alternatives,
+    supporting,
+    verified: required.every(item => item.state === 'ready') &&
+      alternatives.every(group => group.readyCount >= group.minimumRequired),
+    blockingEvidence: required.filter(item => item.state === 'weak-evidence')
+  };
+}
+
 function updateMastery({ state, skill, question, correct, hintLevel }) {
   const previous = structuredClone(state.mastery[skill.id] ?? blankMastery());
   const next = structuredClone(previous);
@@ -163,6 +199,7 @@ export function evaluateResponse({ question, choiceId, state, skillsById, questi
   const targetSkillId = configured?.targetSkillId ?? nextQuestion?.skillId ?? null;
   const targetSkill = targetSkillId ? skillsById.get(targetSkillId) : null;
   const relationship = relationshipFor(skill, choice.evidence?.prerequisiteSkillId ?? targetSkillId);
+  const targetReadiness = assessReadiness(targetSkill, state);
 
   const evidence = {
     attemptedSkill: skill.id,
@@ -183,6 +220,7 @@ export function evaluateResponse({ question, choiceId, state, skillsById, questi
     recommendedNextAction: action,
     recommendedNextSkill: targetSkillId,
     recommendedNextQuestion: nextQuestionId,
+    targetReadiness,
     explanation: explainRoute({
       action,
       correct: choice.correct,

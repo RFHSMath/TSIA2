@@ -22,7 +22,8 @@
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "s001"
+        "s001",
+        "x001"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
@@ -33,7 +34,8 @@
       "id": "s003",
       "studentName": "Fractions and Percents",
       "requiredPrerequisites": [
-        "s001"
+        "s001",
+        "x001"
       ],
       "supportingSkills": [
         "s002",
@@ -41,7 +43,8 @@
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "s001"
+        "s001",
+        "x001"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
@@ -72,7 +75,9 @@
       "requiredPrerequisites": [],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
-      "regressionTargets": [],
+      "regressionTargets": [
+        "x001"
+      ],
       "masteryEvidence": {
         "independentCorrect": 2,
         "transferRequired": true
@@ -82,12 +87,14 @@
       "id": "s006",
       "studentName": "Find a Unit Rate",
       "requiredPrerequisites": [
-        "s005"
+        "s005",
+        "x001"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "s005"
+        "s005",
+        "x001"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
@@ -98,12 +105,14 @@
       "id": "s007",
       "studentName": "Build Equivalent Ratios",
       "requiredPrerequisites": [
-        "s005"
+        "s005",
+        "x001"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "s005"
+        "s005",
+        "x001"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
@@ -114,14 +123,16 @@
       "id": "s008",
       "studentName": "Solve a Proportion",
       "requiredPrerequisites": [
-        "s007"
+        "s007",
+        "x001"
       ],
       "supportingSkills": [
         "s006"
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "s007"
+        "s007",
+        "x001"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
@@ -168,13 +179,15 @@
       "id": "s011",
       "studentName": "Find a Percent of a Number",
       "requiredPrerequisites": [
-        "s010"
+        "s010",
+        "x001"
       ],
       "supportingSkills": [
         "s004"
       ],
       "alternativePrerequisiteGroups": [
         {
+          "minimumRequired": 1,
           "skillIds": [
             "s002",
             "s008"
@@ -184,7 +197,8 @@
       "regressionTargets": [
         "s010",
         "s002",
-        "s008"
+        "s008",
+        "x001"
       ],
       "masteryEvidence": {
         "independentCorrect": 3,
@@ -195,11 +209,13 @@
       "id": "s012",
       "studentName": "What Percent Is It?",
       "requiredPrerequisites": [
-        "s010"
+        "s010",
+        "x001"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [
         {
+          "minimumRequired": 1,
           "skillIds": [
             "s002",
             "s008"
@@ -209,7 +225,8 @@
       "regressionTargets": [
         "s010",
         "s002",
-        "s008"
+        "s008",
+        "x001"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
@@ -220,11 +237,13 @@
       "id": "s013",
       "studentName": "Find the Original Whole",
       "requiredPrerequisites": [
-        "s010"
+        "s010",
+        "x001"
       ],
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [
         {
+          "minimumRequired": 1,
           "skillIds": [
             "s002",
             "s008"
@@ -234,7 +253,8 @@
       "regressionTargets": [
         "s010",
         "s002",
-        "s008"
+        "s008",
+        "x001"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
@@ -412,14 +432,16 @@
       "id": "s023",
       "studentName": "Percent Error",
       "requiredPrerequisites": [
-        "s012"
+        "s012",
+        "x001"
       ],
       "supportingSkills": [
         "s017"
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "s012"
+        "s012",
+        "x001"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
@@ -430,14 +452,16 @@
       "id": "s024",
       "studentName": "Convert Units with Rates",
       "requiredPrerequisites": [
-        "s006"
+        "s006",
+        "x001"
       ],
       "supportingSkills": [
         "s008"
       ],
       "alternativePrerequisiteGroups": [],
       "regressionTargets": [
-        "s006"
+        "s006",
+        "x001"
       ],
       "masteryEvidence": {
         "independentCorrect": 2,
@@ -453,6 +477,7 @@
       "supportingSkills": [],
       "alternativePrerequisiteGroups": [
         {
+          "minimumRequired": 2,
           "skillIds": [
             "s009",
             "s018",
@@ -478,6 +503,15 @@
         "independentCorrect": 3,
         "transferRequired": true
       }
+    },
+    {
+      "id": "x001",
+      "studentName": "Foundational number skills",
+      "handoff": true,
+      "requiredPrerequisites": [],
+      "supportingSkills": [],
+      "alternativePrerequisiteGroups": [],
+      "regressionTargets": []
     }
   ]
 }

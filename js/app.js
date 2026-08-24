@@ -14,7 +14,10 @@ const [skillsData, questionData] = await Promise.all([
 const skills = skillsData.skills;
 const skillsById = new Map(skills.map(skill => [skill.id, skill]));
 const questionsById = new Map(questionData.questions.map(question => [question.id, question]));
-const storageKey = 'tsia2-percent-phase1-state';
+// Question identifiers are intentionally opaque and may be renumbered during a
+// release. Keep saved sessions inside their originating bank version so an
+// update never resumes a student on a different question by accident.
+const storageKey = `tsia2-percent-phase1-state-${questionData.version}`;
 const entryIndexKey = 'tsia2-percent-phase1-entry-index';
 
 function nextDiagnosticEntry() {
